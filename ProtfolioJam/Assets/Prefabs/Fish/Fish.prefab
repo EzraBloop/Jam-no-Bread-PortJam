@@ -46,13 +46,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2790bf7d97d874597442cfd8d1e6d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fish
+  data: {fileID: 11400000, guid: b7f0f31c4420cd840ae990c568670ae1, type: 2}
   swimSpeed: 1
   maxSwimSpeed: 1
   waveHeight: 0.5
   waveFrequency: 1
-  fishBody: {fileID: 3053531858982958890}
+  fishBody: {fileID: 5584974740813783897}
   fishCollider: {fileID: 4802119796878089648}
   rb: {fileID: 1008587228307875406}
+  onSwim:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &1008587228307875406
 Rigidbody2D:
   serializedVersion: 5
@@ -93,7 +97,7 @@ GameObject:
   - component: {fileID: 4802119796878089648}
   m_Layer: 0
   m_Name: PlaceholderFish_0
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

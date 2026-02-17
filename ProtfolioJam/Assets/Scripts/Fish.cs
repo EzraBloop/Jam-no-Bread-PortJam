@@ -1,38 +1,38 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Fish : MonoBehaviour
 {
-    
-    private Vector2 moveDir;
 
-    [SerializeField] private float swimSpeed, maxSwimSpeed;
-    [SerializeField] private float waveHeight = 0.5f;
-    [SerializeField] private float waveFrequency = 2f;
-    [SerializeField] private GameObject fishBody;
+    protected Vector2 moveDir;
 
-    Vector3 spawnLocation;
+    [SerializeField] protected FishSO data;
+    [SerializeField] protected float swimSpeed, maxSwimSpeed;
+    [SerializeField] protected float waveHeight = 0.5f;
+    [SerializeField] protected float waveFrequency = 2f;
+    [Space(10)][SerializeField] protected GameObject fishBody;
 
-    public Collider2D fishCollider;
     public Rigidbody2D rb;
 
+    public UnityEvent<Vector2> onSwim;
 
-
-    private void Start()
+    protected void Start()
     {
-        spawnLocation = transform.position;
-        InitializeFish(transform.right, this.transform.position);
+        InitializeFish(transform.up, this.transform.position); // TEST
 
 
     }
 
-    private void Update()
+    protected void Update()
     {
         Swim(moveDir);
         Bob();
     }
 
-    private void Swim(Vector2 dir)
+    protected void Swim(Vector2 dir)
     {
+        onSwim?.Invoke(this.transform.position);
         rb.AddForce(dir * swimSpeed);
 
         Vector2 tmpVelocity = rb.linearVelocity;
@@ -50,7 +50,7 @@ public class Fish : MonoBehaviour
 
     }
 
-    private void Bob()
+    protected void Bob()
     {
 
         float bobOffset = Mathf.Sin(Time.time * waveFrequency) * waveHeight;
@@ -58,20 +58,20 @@ public class Fish : MonoBehaviour
         fishBody.transform.localPosition = new Vector3(0f, bobOffset, 0f);
 
     }
-    public void InitializeFish(Vector2 swimDirection, Vector2 spawnLocation_)
+    protected void InitializeFish(Vector2 swimDirection, Vector2 spawnLocation_)
     {
         transform.position = spawnLocation_;
-        spawnLocation = spawnLocation_;
         moveDir = swimDirection;
     }
 
 }
 
 [CreateAssetMenu(fileName = "FishData", menuName = "Fish/Fish Data")]
+[Serializable]
 public class FishSO : ScriptableObject
 {
     public int fishID;
-    public string fishName;
+    public string fishName = "feesh";
     public float fishValue;
     public float fishSpeed;
     public float fishMaxSpeed;
