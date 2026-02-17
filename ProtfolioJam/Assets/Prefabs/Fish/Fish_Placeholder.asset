@@ -15,6 +15,6 @@ MonoBehaviour:
   fishID: 0
   fishName: 
   fishValue: 0
-  fishSpeed: 0
-  fishMaxSpeed: 0
-  prefab: {fileID: 0}
+  fishSpeed: 1
+  fishMaxSpeed: 1
+  prefab: {fileID: 3053531858982958890, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}

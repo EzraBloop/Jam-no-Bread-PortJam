@@ -52,9 +52,8 @@ MonoBehaviour:
   waveHeight: 0.5
   waveFrequency: 1
   fishBody: {fileID: 5584974740813783897}
-  fishCollider: {fileID: 4802119796878089648}
-  rb: {fileID: 1008587228307875406}
-  onSwim:
+  Rb: {fileID: 1008587228307875406}
+  Swimming:
     m_PersistentCalls:
       m_Calls: []
 --- !u!50 &1008587228307875406
