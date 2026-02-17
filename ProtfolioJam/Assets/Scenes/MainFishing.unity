@@ -690,6 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   trackingTarget: {fileID: 1419569459}
+  distanceFromObject: -15
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
