@@ -521,102 +521,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2008422159 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6549967474232992288, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
-  m_PrefabInstance: {fileID: 2511082329197617455}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2008422161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2008422159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a4e548142bd86541ae59868d2c02290, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Plunger
-  moveAction:
-    m_Name: Move
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 83dd8a76-a10c-47e4-9288-4957ae76282a
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 2D Vector
-      m_Id: 1173cf9d-ca36-45de-9f2c-039cdcbced43
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 6b148e2e-c9b4-487d-be40-5070ef542755
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 3a2e2ba4-f71c-43b4-95d0-5c30726b1022
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 62778c5c-5653-4e38-a9ec-b043c6965633
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: right
-      m_Id: a1bea2bb-babd-4363-8ca5-afe9f114f27a
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    m_Flags: 0
-  fallSpeed: 1
-  moveSpeed: 100
-  movementDir: {x: 0, y: 0}
---- !u!50 &2008422163
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2008422159}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1001 &2511082329197617455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -665,28 +569,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4398951863896024984, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 60832b47bd06c9a43bbb79933b68db51, type: 2}
     - target: {fileID: 6549967474232992288, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
       propertyPath: m_Name
       value: TempPlunger
       objectReference: {fileID: 0}
-    - target: {fileID: 8427959685905722644, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 60832b47bd06c9a43bbb79933b68db51, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6549967474232992288, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2008422161}
-    - targetCorrespondingSourceObject: {fileID: 6549967474232992288, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2008422163}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

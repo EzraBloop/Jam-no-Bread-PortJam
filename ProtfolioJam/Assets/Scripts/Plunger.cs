@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 public class Plunger : MonoBehaviour
 {
     [SerializeField] InputAction moveAction;
-    [SerializeField] GameObject body;
-    public float fallSpeed, moveSpeed, rotaionSpeed;
+    [SerializeField] GameObject body, boat;
+    public float fallSpeed, moveSpeed, maxSpeed, rotaionSpeed;
     Rigidbody2D rb;
     public Vector2 movementDir;
 
@@ -35,6 +35,7 @@ public class Plunger : MonoBehaviour
     void FixedUpdate()
     {
         rb.AddForce(new Vector2(movementDir.x, 0) * moveSpeed * Time.fixedDeltaTime);
+        rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxSpeed);
         if(movementDir.x == 1)
         {
             body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.Euler(0,0, 45), rotaionSpeed * Time.fixedDeltaTime);
@@ -43,6 +44,12 @@ public class Plunger : MonoBehaviour
         {
             body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.Euler(0,0, -45), rotaionSpeed * Time.fixedDeltaTime);
         }
+    }
+
+    public void ReturnToBoat()
+    {
+        boat.GetComponent<BoatMovement>().enabled = true;
+        gameObject.GetComponent<Plunger>().enabled = false;
     }
 
     public void MoveInput(InputAction.CallbackContext c)
