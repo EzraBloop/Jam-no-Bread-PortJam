@@ -313,6 +313,7 @@ MonoBehaviour:
   body: {fileID: 1909765802356708695}
   fallSpeed: 1
   moveSpeed: 100
+  maxSpeed: 1
   rotaionSpeed: 1
   movementDir: {x: 0, y: 0}
 --- !u!50 &8779445311346839361
@@ -341,4 +342,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
