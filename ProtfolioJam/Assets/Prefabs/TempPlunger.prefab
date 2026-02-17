@@ -311,10 +311,12 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
   body: {fileID: 1909765802356708695}
+  boat: {fileID: 0}
   fallSpeed: 1
   moveSpeed: 100
   maxSpeed: 1
   rotaionSpeed: 1
+  returnSpeed: 10
   movementDir: {x: 0, y: 0}
 --- !u!50 &8779445311346839361
 Rigidbody2D:
