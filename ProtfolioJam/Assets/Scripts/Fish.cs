@@ -8,7 +8,7 @@ public class Fish : MonoBehaviour
     [SerializeField] private float waveHeight = 0.5f;
     [SerializeField] private float waveFrequency = 2f;
 
-    Vector3 _spawnLocation;
+    Vector3 spawnLocation;
 
     public Collider2D fishCollider;
     public Rigidbody2D rb;
@@ -20,7 +20,7 @@ public class Fish : MonoBehaviour
         _moveDir = this.transform.right;
         swimSpeed = 1;
 
-        _spawnLocation = transform.position;
+        spawnLocation = transform.position;
 
     }
     private void Update()
@@ -29,9 +29,9 @@ public class Fish : MonoBehaviour
         Bob();
     }
 
-    private void Swim(Vector2 dir_)
+    private void Swim(Vector2 dir)
     {
-        rb.AddForce(dir_);
+        rb.AddForce(dir);
 
 
 
@@ -44,7 +44,7 @@ public class Fish : MonoBehaviour
     }
     private void Bob()
     {
-        float newY = _spawnLocation.y + Mathf.Sin(Time.time * waveFrequency) * waveHeight;
+        float newY = spawnLocation.y + Mathf.Sin(Time.time * waveFrequency) * waveHeight;
         Vector3 pos = transform.position;
         pos.y = newY;
         transform.position = pos;
