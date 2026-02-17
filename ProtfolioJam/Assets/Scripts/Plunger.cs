@@ -9,6 +9,8 @@ public class Plunger : MonoBehaviour
     Rigidbody2D rb;
     public Vector2 movementDir;
 
+    bool acending;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -16,6 +18,7 @@ public class Plunger : MonoBehaviour
         OnEnable();
 
         moveAction.performed += MoveInput;
+        moveAction.canceled += MoveInput;
     }
 
     void Update()
@@ -29,7 +32,12 @@ public class Plunger : MonoBehaviour
         else
         {
             Debug.Log(hit.collider.gameObject.tag);
-        }          
+            acending = true;
+        }
+        if (acending)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, boat.transform.position, 10 * Time.deltaTime);
+        }         
     }
 
     void FixedUpdate()
