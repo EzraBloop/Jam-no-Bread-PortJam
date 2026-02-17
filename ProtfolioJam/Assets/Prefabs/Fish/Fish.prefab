@@ -47,10 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fish
   data: {fileID: 11400000, guid: b7f0f31c4420cd840ae990c568670ae1, type: 2}
+  bobSettings:
+    waveHeight: 0.5
+    waveFrequency: 2
   swimSpeed: 1
   maxSwimSpeed: 1
-  waveHeight: 0.5
-  waveFrequency: 1
   fishBody: {fileID: 5584974740813783897}
   Rb: {fileID: 1008587228307875406}
   Swimming:
@@ -95,7 +96,7 @@ GameObject:
   - component: {fileID: 4686845244874768760}
   - component: {fileID: 4802119796878089648}
   m_Layer: 0
-  m_Name: PlaceholderFish_0
+  m_Name: SpriteBody
   m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 5584974740813783897}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.28612, y: 0, z: 2.24974}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
