@@ -350,7 +350,7 @@ MonoBehaviour:
   stiffness: 350
   damping: 15
   ropeLength: 5.5
-  ropeWidth: 10
+  ropeWidth: 0.1
   midPointWeight: 1
   midPointPosition: 0.5
 --- !u!120 &1308603264
@@ -422,7 +422,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 10
+        value: 0.1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -431,7 +431,7 @@ LineRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 10
+        value: 0.1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
