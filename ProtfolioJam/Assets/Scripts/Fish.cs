@@ -22,13 +22,13 @@ public class Fish : MonoBehaviour
     [Space(10)][SerializeField] protected GameObject fishBody;
 
     private Rigidbody2D rb;
-
     public UnityEvent<Vector2> Swimming;
 
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         //InitializeFish(transform.right, this.transform.position); // TEST
+        rb.gravityScale = 0f;
 
         if (data != null)
         {
