@@ -41,6 +41,7 @@ public class Plunger : MonoBehaviour
         if(Vector3.Distance(transform.position, boat.transform.position) < 0.2f)
         {
             acending = false;
+            ReturnToBoat();
         }        
     }
 
@@ -61,7 +62,7 @@ public class Plunger : MonoBehaviour
     public void ReturnToBoat()
     {
         boat.GetComponent<BoatMovement>().enabled = true;
-        gameObject.GetComponent<Plunger>().enabled = false;
+        OnDisable();
     }
 
     public void MoveInput(InputAction.CallbackContext c)
@@ -69,8 +70,12 @@ public class Plunger : MonoBehaviour
         movementDir =  c.ReadValue<Vector2>();
     }
 
-    void OnEnable()
+    public void OnEnable()
     {
         moveAction.Enable();
+    }
+    public void OnDisable()
+    {
+        moveAction.Disable();
     }
 }
