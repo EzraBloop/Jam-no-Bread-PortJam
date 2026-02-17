@@ -44,11 +44,11 @@ public class Plunger : MonoBehaviour
     {
         rb.AddForce(new Vector2(movementDir.x, 0) * moveSpeed * Time.fixedDeltaTime);
         rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxSpeed);
-        if(movementDir.x == 1)
+        if(movementDir.x > 0.5)
         {
             body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.Euler(0,0, 45), rotaionSpeed * Time.fixedDeltaTime);
         }
-        if(movementDir.x == -1)
+        if(movementDir.x < -0.5)
         {
             body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.Euler(0,0, -45), rotaionSpeed * Time.fixedDeltaTime);
         }
