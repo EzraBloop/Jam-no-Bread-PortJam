@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &767984853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 652213889553692638, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+  m_PrefabInstance: {fileID: 8606441740665527980}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1123757544
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,6 +507,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6549967474232992288, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
   m_PrefabInstance: {fileID: 1551281705}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1551281709 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1979083041133255442, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
+  m_PrefabInstance: {fileID: 1551281705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1669390131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -512,15 +522,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1292446346468231712, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.0053196
+      value: 1.95
       objectReference: {fileID: 0}
     - target: {fileID: 1292446346468231712, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.000014
+      value: -2.57
       objectReference: {fileID: 0}
     - target: {fileID: 1292446346468231712, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.641773
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1292446346468231712, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -553,6 +563,14 @@ PrefabInstance:
     - target: {fileID: 3053531858982958890, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
       propertyPath: m_Name
       value: Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040336136997612261, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040336136997612261, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -590,7 +608,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3f8696512b20b564fbf82e48e673dce7, type: 2}
+  - {fileID: 2100000, guid: 84a53081139c2a345a118d37b69c8e7e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -614,8 +632,17 @@ LineRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 1.35, z: 0}
+  - {x: -0.2364183, y: -0.69378376, z: 0}
+  - {x: -0.4728366, y: -2.249807, z: 0}
+  - {x: -0.7092549, y: -3.3180704, z: 0}
+  - {x: -0.9456732, y: -3.8985736, z: 0}
+  - {x: -1.1820915, y: -3.991316, z: 0}
+  - {x: -1.4185097, y: -3.5962987, z: 0}
+  - {x: -1.6549281, y: -2.7135212, z: 0}
+  - {x: -1.8913465, y: -1.3429832, z: 0}
+  - {x: -2.1277645, y: 0.5153141, z: 0}
+  - {x: -2.364183, y: 2.861373, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -624,7 +651,16 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -686,6 +722,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab735b5b3fdd404aa85431376fc9739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rope
+  plunger: {fileID: 1551281706}
+  start: {fileID: 767984853}
+  rope: {fileID: 2145023822}
+--- !u!4 &2145023833 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3006010802895066754, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+  m_PrefabInstance: {fileID: 8606441740665527980}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2145023834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145023822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2fcc597881599646a35e7161a5504ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GogoGaga.OptimizedRopesAndCables.Rope
+  startPoint: {fileID: 2145023833}
+  midPoint: {fileID: 0}
+  endPoint: {fileID: 1551281709}
+  linePoints: 10
+  stiffness: 350
+  damping: 15
+  ropeLength: 15
+  ropeWidth: 0.1
+  midPointWeight: 1
+  midPointPosition: 0.5
 --- !u!1001 &8606441740665527980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -768,6 +834,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7775857339750983002, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2145023828}
+    - targetCorrespondingSourceObject: {fileID: 7775857339750983002, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2145023834}
   m_SourcePrefab: {fileID: 100100000, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
