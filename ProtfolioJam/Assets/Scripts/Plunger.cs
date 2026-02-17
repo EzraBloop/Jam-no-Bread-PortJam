@@ -5,7 +5,7 @@ public class Plunger : MonoBehaviour
 {
     [SerializeField] InputAction moveAction;
     [SerializeField] GameObject body, boat;
-    public float fallSpeed, moveSpeed, maxSpeed, rotaionSpeed;
+    public float fallSpeed, moveSpeed, maxSpeed, rotaionSpeed, returnSpeed;
     Rigidbody2D rb;
     public Vector2 movementDir;
 
@@ -36,7 +36,7 @@ public class Plunger : MonoBehaviour
         }
         if (acending)
         {
-            transform.position = Vector3.MoveTowards(transform.position, boat.transform.position, 10 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, boat.transform.position, returnSpeed * Time.deltaTime);
         }         
     }
 
