@@ -497,6 +497,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
+--- !u!1 &1551281706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6549967474232992288, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
+  m_PrefabInstance: {fileID: 1551281705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1669390131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -728,6 +733,26 @@ PrefabInstance:
     - target: {fileID: 3006010802895066754, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140886674760420311, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: plunger
+      value: 
+      objectReference: {fileID: 1551281706}
+    - target: {fileID: 4140886674760420311, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: fire.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140886674760420311, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: fire.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 93f2f775-e279-43df-ac1c-99ee337e2e15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140886674760420311, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: fire.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/space
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140886674760420311, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: fire.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Fire
       objectReference: {fileID: 0}
     - target: {fileID: 7775857339750983002, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
       propertyPath: m_Name
