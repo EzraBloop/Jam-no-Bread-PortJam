@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1008587228307875406}
   m_Layer: 0
   m_Name: Fish
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,10 +50,9 @@ MonoBehaviour:
   bobSettings:
     waveHeight: 0.5
     waveFrequency: 2
-  swimSpeed: 1
-  maxSwimSpeed: 1
+  swimAcceleration: 1
+  maxSwimVelocity: 2
   fishBody: {fileID: 5584974740813783897}
-  Rb: {fileID: 1008587228307875406}
   Swimming:
     m_PersistentCalls:
       m_Calls: []

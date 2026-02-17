@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 5738224946795861808}
   m_Layer: 0
   m_Name: Bruxish
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
