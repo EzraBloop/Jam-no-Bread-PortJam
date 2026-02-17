@@ -37,7 +37,11 @@ public class Plunger : MonoBehaviour
         if (acending)
         {
             transform.position = Vector3.MoveTowards(transform.position, boat.transform.position, returnSpeed * Time.deltaTime);
-        }         
+        } 
+        if(Vector3.Distance(transform.position, boat.transform.position) < 0.2f)
+        {
+            acending = false;
+        }        
     }
 
     void FixedUpdate()

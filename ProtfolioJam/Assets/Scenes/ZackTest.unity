@@ -818,10 +818,6 @@ PrefabInstance:
       propertyPath: boat
       value: 
       objectReference: {fileID: 1417427138}
-    - target: {fileID: 1407730592447017446, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
-      propertyPath: returnSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 1979083041133255442, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.5167
