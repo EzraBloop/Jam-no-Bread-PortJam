@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,43 +8,55 @@ public class Fish : MonoBehaviour
 {
 
     protected Vector2 moveDir;
-    public int fishID { get; private set; }
+    public int FishID { get; private set; }
 
     [SerializeField] protected FishSO data;
+    [Serializable]public struct BobSettings
+    {
+        public float waveHeight;
+        public float waveFrequency;
+    }
+    [SerializeField]protected BobSettings bobSettings = new BobSettings { waveHeight = 0.5f, waveFrequency = 2f };
 
-    [SerializeField] protected float swimSpeed = 1, maxSwimSpeed = 2;
-    [SerializeField] protected float waveHeight = 0.5f;
-    [SerializeField] protected float waveFrequency = 2f;
+    [SerializeField] protected float swimAcceleration = 1, maxSwimVelocity = 2; //overwritten by data if present
     [Space(10)][SerializeField] protected GameObject fishBody;
 
-    public Rigidbody2D Rb;
+    private Rigidbody2D rb;
 
     public UnityEvent<Vector2> Swimming;
 
-    protected void Start()
+    public void Start()
     {
-        InitializeFish(transform.right, this.transform.position); // TEST
+        rb = GetComponent<Rigidbody2D>();
+        //InitializeFish(transform.right, this.transform.position); // TEST
 
         if (data != null)
         {
-            swimSpeed = data.fishSpeed;
-            maxSwimSpeed = data.fishMaxSpeed;
-            fishID = data.fishID;
+            swimAcceleration = data.fishSpeed;
+            maxSwimVelocity = data.fishMaxVelocity;
+            FishID = data.fishID;
 
         }
         else
         {
-            fishID = -1;
+            FishID = -1;
         }
 
 
+        if (moveDir == Vector2.zero) moveDir = transform.right; 
     }
 
-    protected void Update()
+    public void Update()
     {
         Swim(moveDir);
         Bob();
     }
+    public void InitializeFish(Vector2 swimDirection, Vector2 spawnLocation)
+    {
+        transform.position = spawnLocation;
+        moveDir = swimDirection;
+    }
+    #region Movement
     /// <summary>
     /// moves fish in the direction provided, rotates the fish to face the direction.
     /// </summary>
@@ -54,7 +65,7 @@ public class Fish : MonoBehaviour
     {
         
         Swimming?.Invoke(this.transform.position);
-        var check = CollisionCheck();
+        var check = ForwardCollisionCheck();
         if (check.Count > 0)
         {
             foreach (var item in check)
@@ -67,15 +78,15 @@ public class Fish : MonoBehaviour
                 }
             }
         }
-        Rb.AddForce(dir * swimSpeed);
+        rb.AddForce(dir * swimAcceleration);
 
-        Vector2 tmpVelocity = Rb.linearVelocity;
+        Vector2 tmpVelocity = rb.linearVelocity;
 
-        tmpVelocity.x = Mathf.Clamp(tmpVelocity.x, -maxSwimSpeed, maxSwimSpeed);
-        tmpVelocity.y = Mathf.Clamp(tmpVelocity.y, -maxSwimSpeed, maxSwimSpeed);
-        Rb.linearVelocity = tmpVelocity;
+        tmpVelocity.x = Mathf.Clamp(tmpVelocity.x, -maxSwimVelocity, maxSwimVelocity);
+        tmpVelocity.y = Mathf.Clamp(tmpVelocity.y, -maxSwimVelocity, maxSwimVelocity);
+        rb.linearVelocity = tmpVelocity;
 
-        if (Rb.linearVelocity.magnitude > 0.1) 
+        if (rb.linearVelocity.magnitude > 0.1) 
         {
             var angle = Mathf.Atan2(tmpVelocity.y, tmpVelocity.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
@@ -92,7 +103,7 @@ public class Fish : MonoBehaviour
     protected void Bob()
     {
 
-        float bobOffset = Mathf.Sin(Time.time * waveFrequency) * waveHeight;
+        float bobOffset = Mathf.Sin(Time.time * bobSettings.waveFrequency) * bobSettings.waveHeight;
 
         fishBody.transform.localPosition = new Vector3(0f, bobOffset, 0f);
 
@@ -101,53 +112,72 @@ public class Fish : MonoBehaviour
     {
         
         moveDir *= -1;
-        Rb.linearVelocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
     }
     /// <summary>
     /// sets the spawn location, and intial swim direction;
     /// </summary>
     /// <param name="swimDirection"></param>
     /// <param name="spawnLocation_"></param>
-    protected void InitializeFish(Vector2 swimDirection, Vector2 spawnLocation_)
+    #endregion
+
+    #region Collisions
+    protected List<RaycastHit2D> ForwardCollisionCheck()
     {
-        transform.position = spawnLocation_;
-        moveDir = swimDirection;
+        float rayDistance = 2f;
+
+        var hits = Physics2D.RaycastAll(transform.position, moveDir, rayDistance);
+        return hits.Where(h => h.collider.gameObject != fishBody).ToList();
     }
-    private List<RaycastHit2D> CollisionCheck()
+    protected void OnCollisionEnter2D(Collision2D collision)
     {
-        var hits = Physics2D.RaycastAll(transform.position, transform.right, 2f);
-        return hits.Where(h => h.collider != null && h.rigidbody != Rb).ToList();
+        
     }
+    protected void OnCollisionStay2D(Collision2D collision)
+    {
+        
+    }
+    protected void OnCollisionExit2D(Collision2D collision)
+    {
+        
+    }
+    #endregion
     #region Gizmos
-    private void OnDrawGizmos()
+    protected void OnDrawGizmos()
     {
 
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position, transform.position + (Vector3)moveDir * 3f); // swim direction
 
-        if (Rb != null)
+        if (rb != null)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(transform.position, transform.position + (Vector3)Rb.linearVelocity);
+            Gizmos.DrawLine(transform.position, transform.position + (Vector3)rb.linearVelocity);
         }
     }
-    private void OnDrawGizmosSelected()
+    protected void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, transform.position + transform.right * 2f);
     }
     #endregion
-}
 
+
+}
 [CreateAssetMenu(fileName = "FishData", menuName = "Fish/Fish Data")]
 [Serializable]
 public class FishSO : ScriptableObject
 {
     public int fishID = 0;
+    [Header("Fish Stats")]
+    [Space(10)]
     public string fishName = "feesh";
     public float fishValue = 0;
+    public int fishCaught = 0;
+    public int fishSold = 0;
+    [Space(10)]
     public float fishSpeed = 1;
-    public float fishMaxSpeed = 1;
+    public float fishMaxVelocity = 1;
 
     public GameObject prefab;
 
