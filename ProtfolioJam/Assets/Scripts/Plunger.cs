@@ -64,7 +64,7 @@ public class Plunger : MonoBehaviour
 
     public void ReturnToBoat()
     {
-        boat.GetComponent<BoatMovement>().enabled = true;
+        boat.GetComponent<BoatMovement>().OnEnable();
         OnDisable();
     }
 
