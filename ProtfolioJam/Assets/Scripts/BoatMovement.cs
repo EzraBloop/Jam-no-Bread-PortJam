@@ -21,9 +21,6 @@ public class BoatMovement : MonoBehaviour
 
     private void Awake()
     {
-        move.Enable();
-        fire.Enable();
-
         move.performed += GetMoveVector;
         move.canceled += GetMoveVector;
 
@@ -31,7 +28,11 @@ public class BoatMovement : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
     }
-
+    private void OnEnable()
+    {
+        move.Enable();
+        fire.Enable();
+    }
     private void OnDisable()
     {
         move.Disable();
