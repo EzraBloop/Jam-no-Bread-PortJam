@@ -52,7 +52,7 @@ public class BoatMovement : MonoBehaviour
 
     public void FirePlunger(InputAction.CallbackContext c)
     {
-        plunger.GetComponent<Plunger>().enabled = true;
-        gameObject.GetComponent<BoatMovement>().enabled = false;
+        OnDisable();
+        plunger.GetComponent<Plunger>().OnEnable();
     }
 }
