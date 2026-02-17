@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +23,7 @@ public class Fish : MonoBehaviour
 
     protected void Start()
     {
-        InitializeFish(transform.right, this.transform.position); // TEST
+        //InitializeFish(transform.right, this.transform.position); // TEST
 
         if (data != null)
         {
@@ -39,6 +38,7 @@ public class Fish : MonoBehaviour
         }
 
 
+        if (moveDir == Vector2.zero) moveDir = transform.right; 
     }
 
     protected void Update()
@@ -46,6 +46,7 @@ public class Fish : MonoBehaviour
         Swim(moveDir);
         Bob();
     }
+    #region Movement
     /// <summary>
     /// moves fish in the direction provided, rotates the fish to face the direction.
     /// </summary>
@@ -108,18 +109,36 @@ public class Fish : MonoBehaviour
     /// </summary>
     /// <param name="swimDirection"></param>
     /// <param name="spawnLocation_"></param>
+    #endregion
     protected void InitializeFish(Vector2 swimDirection, Vector2 spawnLocation_)
     {
         transform.position = spawnLocation_;
         moveDir = swimDirection;
     }
-    private List<RaycastHit2D> CollisionCheck()
+
+    #region Collisions
+    protected List<RaycastHit2D> CollisionCheck()
     {
-        var hits = Physics2D.RaycastAll(transform.position, transform.right, 2f);
-        return hits.Where(h => h.collider != null && h.rigidbody != Rb).ToList();
+        float rayDistance = 2f;
+
+        var hits = Physics2D.RaycastAll(transform.position, moveDir, rayDistance);
+        return hits.Where(h => h.collider.gameObject != fishBody).ToList();
     }
+    protected void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
+    protected void OnCollisionStay2D(Collision2D collision)
+    {
+        
+    }
+    protected void OnCollisionExit2D(Collision2D collision)
+    {
+        
+    }
+    #endregion
     #region Gizmos
-    private void OnDrawGizmos()
+    protected void OnDrawGizmos()
     {
 
         Gizmos.color = Color.green;
@@ -131,14 +150,15 @@ public class Fish : MonoBehaviour
             Gizmos.DrawLine(transform.position, transform.position + (Vector3)Rb.linearVelocity);
         }
     }
-    private void OnDrawGizmosSelected()
+    protected void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, transform.position + transform.right * 2f);
     }
     #endregion
-}
 
+
+}
 [CreateAssetMenu(fileName = "FishData", menuName = "Fish/Fish Data")]
 [Serializable]
 public class FishSO : ScriptableObject

@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1292446346468231712, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.28612
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1292446346468231712, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1292446346468231712, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.24974
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1292446346468231712, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -170,6 +170,14 @@ PrefabInstance:
     - target: {fileID: 3053531858982958890, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
       propertyPath: m_Name
       value: Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040336136997612261, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040336136997612261, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
