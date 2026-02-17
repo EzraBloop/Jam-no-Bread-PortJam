@@ -9,8 +9,10 @@ public class BoatMovement : MonoBehaviour
     public float rotSpeed;
 
     public InputAction move;
-
+    public InputAction fire;
     public GameObject gunPivot;
+
+    public GameObject plunger;
 
     Vector2 movementDirection;
     public event Action<Vector2> OnMove;
@@ -20,14 +22,20 @@ public class BoatMovement : MonoBehaviour
     private void Awake()
     {
         move.Enable();
+        fire.Enable();
+
         move.performed += GetMoveVector;
         move.canceled += GetMoveVector;
+
+        fire.performed += FirePlunger;
+
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnDisable()
     {
         move.Disable();
+        fire.Disable();
     }
     private void Update()
     {
@@ -39,6 +47,11 @@ public class BoatMovement : MonoBehaviour
     {
         movementDirection = c.ReadValue<Vector2>();
         OnMove?.Invoke(movementDirection);
+    }
 
+    public void FirePlunger(InputAction.CallbackContext c)
+    {
+        plunger.GetComponent<Plunger>().enabled = true;
+        gameObject.GetComponent<BoatMovement>().enabled = false;
     }
 }
