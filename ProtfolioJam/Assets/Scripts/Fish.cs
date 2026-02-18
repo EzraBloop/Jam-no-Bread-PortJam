@@ -11,17 +11,19 @@ public class Fish : MonoBehaviour
     public int FishID { get; private set; }
 
     [SerializeField] protected FishSO data;
-    [Serializable]public struct BobSettings
+    [Serializable]
+    public struct BobSettings
     {
         public float waveHeight;
         public float waveFrequency;
     }
-    [SerializeField]protected BobSettings bobSettings = new BobSettings { waveHeight = 0.5f, waveFrequency = 2f };
+    [SerializeField] protected BobSettings bobSettings = new BobSettings { waveHeight = 0.5f, waveFrequency = 2f };
 
     [SerializeField] protected float swimAcceleration = 1, maxSwimVelocity = 2; //overwritten by data if present
     [Space(10)][SerializeField] protected GameObject fishBody;
 
     private Rigidbody2D rb;
+    public bool IsCaught;
     public UnityEvent<Vector2> Swimming;
 
     public void Start()
@@ -43,14 +45,25 @@ public class Fish : MonoBehaviour
         }
 
 
-        if (moveDir == Vector2.zero) moveDir = transform.right; 
+        if (moveDir == Vector2.zero) moveDir = transform.right;
     }
 
     public void Update()
     {
-        Swim(moveDir);
-        Bob();
+        if (!IsCaught)
+        {
+            Swim(moveDir);
+        }
+        else
+        {
+            fishBody.transform.localPosition = Vector3.zero; // reset Bob transform changes;
+        }
     }
+    /// <summary>
+    /// sets the spawn location, and intial swim direction;
+    /// </summary>
+    /// <param name="swimDirection"></param>
+    /// <param name="spawnLocation_"></param>
     public void InitializeFish(Vector2 swimDirection, Vector2 spawnLocation)
     {
         transform.position = spawnLocation;
@@ -63,7 +76,7 @@ public class Fish : MonoBehaviour
     /// <param name="dir"></param>
     protected void Swim(Vector2 dir)
     {
-        
+
         Swimming?.Invoke(this.transform.position);
         var check = ForwardCollisionCheck();
         if (check.Count > 0)
@@ -74,7 +87,7 @@ public class Fish : MonoBehaviour
                 {
                     //Debug.Log("Collision detected");
                     Pathing(check);
-                    
+
                 }
             }
         }
@@ -86,39 +99,33 @@ public class Fish : MonoBehaviour
         tmpVelocity.y = Mathf.Clamp(tmpVelocity.y, -maxSwimVelocity, maxSwimVelocity);
         rb.linearVelocity = tmpVelocity;
 
-        if (rb.linearVelocity.magnitude > 0.1) 
+        if (rb.linearVelocity.magnitude > 0.1)
         {
+            var sprite = fishBody.GetComponent<SpriteRenderer>();
+            if (rb.linearVelocity.x <= 0)
+            {
+                sprite.flipY = true;
+
+            }
+            else
+            {
+                sprite.flipY = false;
+            }
+
             var angle = Mathf.Atan2(tmpVelocity.y, tmpVelocity.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
         }
 
 
     }
-
-
-
-    /// <summary>
-    /// local bobbing of the fish body object,
-    /// </summary>
-    protected void Bob()
-    {
-
-        float bobOffset = Mathf.Sin(Time.time * bobSettings.waveFrequency) * bobSettings.waveHeight;
-
-        fishBody.transform.localPosition = new Vector3(0f, bobOffset, 0f);
-
-    }
     protected void Pathing(List<RaycastHit2D> check)
     {
+
+        //rb.linearVelocity = Vector2.zero;
         
         moveDir *= -1;
-        rb.linearVelocity = Vector2.zero;
     }
-    /// <summary>
-    /// sets the spawn location, and intial swim direction;
-    /// </summary>
-    /// <param name="swimDirection"></param>
-    /// <param name="spawnLocation_"></param>
     #endregion
 
     #region Collisions
@@ -127,19 +134,19 @@ public class Fish : MonoBehaviour
         float rayDistance = 2f;
 
         var hits = Physics2D.RaycastAll(transform.position, moveDir, rayDistance);
-        return hits.Where(h => h.collider.gameObject != fishBody).ToList();
+        return hits.Where(h => h.collider.gameObject != fishBody || h.collider.GetComponentInParent<Fish>() == null).ToList();
     }
     protected void OnCollisionEnter2D(Collision2D collision)
     {
-        
+
     }
     protected void OnCollisionStay2D(Collision2D collision)
     {
-        
+
     }
     protected void OnCollisionExit2D(Collision2D collision)
     {
-        
+
     }
     #endregion
     #region Gizmos
@@ -161,7 +168,6 @@ public class Fish : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + transform.right * 2f);
     }
     #endregion
-
 
 }
 [CreateAssetMenu(fileName = "FishData", menuName = "Fish/Fish Data")]
