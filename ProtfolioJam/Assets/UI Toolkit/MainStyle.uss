@@ -1,0 +1,26 @@
+VisualElement {
+}
+
+.header {
+    align-items: center;
+    align-self: center;
+    font-size: 75px;
+    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/CoralPixels-Regular.ttf?fileID=12800000&guid=eaa568626ab87eb4fa3d5d4b898da575&type=3#CoralPixels-Regular");
+    -unity-text-align: upper-center;
+    text-shadow: 5px 5px 0 rgb(0, 0, 0);
+    letter-spacing: 25px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 0;
+    -unity-text-outline-color: rgb(0, 0, 0);
+}
+
+.button {
+}
