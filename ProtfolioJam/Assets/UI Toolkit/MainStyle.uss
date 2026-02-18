@@ -5,7 +5,7 @@ VisualElement {
     align-items: center;
     align-self: center;
     font-size: 75px;
-    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/CoralPixels-Regular.ttf?fileID=12800000&guid=eaa568626ab87eb4fa3d5d4b898da575&type=3#CoralPixels-Regular");
+    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/Kablammo-Regular-VariableFont_MORF.ttf?fileID=12800000&guid=efddac91ab4fd2b40b1776cbb510b519&type=3#Kablammo-Regular-VariableFont_MORF");
     -unity-text-align: upper-center;
     text-shadow: 5px 5px 0 rgb(0, 0, 0);
     letter-spacing: 25px;
@@ -32,7 +32,7 @@ VisualElement {
     padding-bottom: 20px;
     padding-left: 50px;
     align-self: center;
-    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/CoralPixels-Regular.ttf?fileID=12800000&guid=eaa568626ab87eb4fa3d5d4b898da575&type=3#CoralPixels-Regular");
+    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/Kablammo-Regular-VariableFont_MORF.ttf?fileID=12800000&guid=efddac91ab4fd2b40b1776cbb510b519&type=3#Kablammo-Regular-VariableFont_MORF");
     font-size: 30px;
     -unity-text-align: upper-center;
     border-top-width: 5px;
@@ -43,6 +43,7 @@ VisualElement {
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px;
+    transition-duration: 0.5s;
 }
 
 .button:hover {
