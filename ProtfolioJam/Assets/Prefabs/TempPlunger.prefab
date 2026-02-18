@@ -310,6 +310,23 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     m_Flags: 0
+  recallAction:
+    m_Name: Recall
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 29128b6f-6d38-4f71-bd55-8900464b08c9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 8f8bb744-a04a-4b1e-86b4-bdeb3f1b377c
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Recall
+      m_Flags: 0
+    m_Flags: 0
   body: {fileID: 1909765802356708695}
   boat: {fileID: 0}
   fallSpeed: 1
@@ -318,6 +335,7 @@ MonoBehaviour:
   rotaionSpeed: 1
   returnSpeed: 10
   movementDir: {x: 0, y: 0}
+  acending: 0
 --- !u!50 &8779445311346839361
 Rigidbody2D:
   serializedVersion: 5

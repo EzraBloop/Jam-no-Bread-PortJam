@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class Plunger : MonoBehaviour
 {
-    [SerializeField] InputAction moveAction;
+    [SerializeField] InputAction moveAction, recallAction;
     [SerializeField] GameObject body, boat;
     public float fallSpeed, moveSpeed, maxSpeed, rotaionSpeed, returnSpeed;
     Rigidbody2D rb;
@@ -19,6 +19,7 @@ public class Plunger : MonoBehaviour
 
         moveAction.performed += MoveInput;
         moveAction.canceled += MoveInput;
+        recallAction.performed += RecallInput;
     }
 
     void Update()
@@ -76,13 +77,19 @@ public class Plunger : MonoBehaviour
     {
         movementDir =  c.ReadValue<Vector2>();
     }
+    public void RecallInput(InputAction.CallbackContext c)
+    {
+        acending = true;
+    }
 
     public void OnEnable()
     {
         moveAction.Enable();
+        recallAction.Enable();
     }
     public void OnDisable()
     {
         moveAction.Disable();
+        recallAction.Disable();
     }
 }
