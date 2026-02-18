@@ -8,6 +8,8 @@ public class BoatMovement : MonoBehaviour
     public float moveSpeed;
     public float rotSpeed;
 
+    public bool inControl;
+
     public InputAction move;
     public InputAction fire;
     public GameObject gunPivot;
@@ -27,6 +29,7 @@ public class BoatMovement : MonoBehaviour
         fire.performed += FirePlunger;
 
         rb = GetComponent<Rigidbody2D>();
+        inControl = true;
     }
     public void OnEnable()
     {
@@ -52,6 +55,7 @@ public class BoatMovement : MonoBehaviour
 
     public void FirePlunger(InputAction.CallbackContext c)
     {
+        inControl = false;
         OnDisable();
         plunger.GetComponent<Plunger>().OnEnable();
     }
