@@ -23,4 +23,43 @@ VisualElement {
 }
 
 .button {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    padding-top: 20px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    align-self: center;
+    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/CoralPixels-Regular.ttf?fileID=12800000&guid=eaa568626ab87eb4fa3d5d4b898da575&type=3#CoralPixels-Regular");
+    font-size: 30px;
+    -unity-text-align: upper-center;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.button:hover {
+    scale: 1.2 1.2 1.2;
+    transition-delay: 0s;
+    transition-duration: 0.5s;
+    transition-property: all;
+    transition-timing-function: ease-out-back;
+    -unity-background-image-tint-color: rgb(191, 215, 255);
+    background-color: rgb(220, 247, 255);
+    letter-spacing: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding-top: 30px;
+    padding-right: 50px;
+    padding-bottom: 30px;
+    padding-left: 50px;
 }
