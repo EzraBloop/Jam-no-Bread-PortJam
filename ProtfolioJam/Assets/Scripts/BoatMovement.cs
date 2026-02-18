@@ -29,6 +29,7 @@ public class BoatMovement : MonoBehaviour
         fire.performed += FirePlunger;
 
         rb = GetComponent<Rigidbody2D>();
+        inControl = true;
     }
     public void OnEnable()
     {
