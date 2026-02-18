@@ -9,13 +9,13 @@ public class Plunger : MonoBehaviour
     Rigidbody2D rb;
     public Vector2 movementDir;
 
-    bool acending;
+    public bool acending;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
-        OnEnable();
+        OnDisable();
 
         moveAction.performed += MoveInput;
         moveAction.canceled += MoveInput;
@@ -23,29 +23,32 @@ public class Plunger : MonoBehaviour
 
     void Update()
     {
-        RaycastHit2D hit;
-        hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
-        if (acending)
+        if (!boat.GetComponent<BoatMovement>().inControl)
         {
-            transform.position = Vector3.MoveTowards(transform.position, boat.transform.position, returnSpeed * Time.deltaTime);
-        }
-        else
-        {
-           if(hit == false)
+            RaycastHit2D hit;
+            hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
+            if (acending)
             {
-                transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, boat.transform.position, returnSpeed * Time.deltaTime);
             }
             else
             {
-                Debug.Log(hit.collider.gameObject.tag);
-                acending = true;
-            } 
-        }
-        if(Vector3.Distance(transform.position, boat.transform.position) < 0.2f)
-        {
-            acending = false;
-            ReturnToBoat();
-        }        
+            if(hit == false)
+                {
+                    transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    Debug.Log(hit.collider.gameObject.tag);
+                    acending = true;
+                } 
+            }
+            if(Vector3.Distance(transform.position, boat.transform.position) < 0.2f)
+            {
+                acending = false;
+                ReturnToBoat();
+            }
+        }       
     }
 
     void FixedUpdate()
@@ -64,6 +67,7 @@ public class Plunger : MonoBehaviour
 
     public void ReturnToBoat()
     {
+        boat.GetComponent<BoatMovement>().inControl = true;
         boat.GetComponent<BoatMovement>().OnEnable();
         OnDisable();
     }
