@@ -25,19 +25,22 @@ public class Plunger : MonoBehaviour
     {
         RaycastHit2D hit;
         hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
-        if(hit == false)
-        {
-            transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
-        }
-        else
-        {
-            Debug.Log(hit.collider.gameObject.tag);
-            acending = true;
-        }
         if (acending)
         {
             transform.position = Vector3.MoveTowards(transform.position, boat.transform.position, returnSpeed * Time.deltaTime);
-        } 
+        }
+        else
+        {
+           if(hit == false)
+            {
+                transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
+            }
+            else
+            {
+                Debug.Log(hit.collider.gameObject.tag);
+                acending = true;
+            } 
+        }
         if(Vector3.Distance(transform.position, boat.transform.position) < 0.2f)
         {
             acending = false;
@@ -61,7 +64,7 @@ public class Plunger : MonoBehaviour
 
     public void ReturnToBoat()
     {
-        boat.GetComponent<BoatMovement>().enabled = true;
+        boat.GetComponent<BoatMovement>().OnEnable();
         OnDisable();
     }
 

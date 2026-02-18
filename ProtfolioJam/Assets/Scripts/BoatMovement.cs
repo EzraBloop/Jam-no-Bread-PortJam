@@ -28,12 +28,12 @@ public class BoatMovement : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
     }
-    private void OnEnable()
+    public void OnEnable()
     {
         move.Enable();
         fire.Enable();
     }
-    private void OnDisable()
+    public void OnDisable()
     {
         move.Disable();
         fire.Disable();
