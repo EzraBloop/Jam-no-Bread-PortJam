@@ -53,6 +53,7 @@ MonoBehaviour:
   swimAcceleration: 1
   maxSwimVelocity: 2
   fishBody: {fileID: 6970195275997186822}
+  IsCaught: 0
   Swimming:
     m_PersistentCalls:
       m_Calls: []
@@ -96,7 +97,7 @@ GameObject:
   - component: {fileID: 6188285017895273242}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

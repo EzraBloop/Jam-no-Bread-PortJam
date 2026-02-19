@@ -502,17 +502,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 530896605538165777, guid: d85ffc6116b4bf344a568e7de73eceba, type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: 8153732d18bf1dd44be18a722ab8a7b0, type: 2}
     - target: {fileID: 6901440285536349135, guid: d85ffc6116b4bf344a568e7de73eceba, type: 3}
       propertyPath: m_Name
       value: FEESH (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6970195275997186822, guid: d85ffc6116b4bf344a568e7de73eceba, type: 3}
-      propertyPath: m_TagString
-      value: Fish
       objectReference: {fileID: 0}
     - target: {fileID: 9171494498831384863, guid: d85ffc6116b4bf344a568e7de73eceba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -747,6 +739,7 @@ MonoBehaviour:
   fallBoostAvailible: 0
   fishCaptureable: 0
   initialLaunchForce: 0
+  dayTimer: 0
 --- !u!4 &343561900
 Transform:
   m_ObjectHideFlags: 0
@@ -900,10 +893,6 @@ PrefabInstance:
     - target: {fileID: 6901440285536349135, guid: d85ffc6116b4bf344a568e7de73eceba, type: 3}
       propertyPath: m_Name
       value: FEESH
-      objectReference: {fileID: 0}
-    - target: {fileID: 6970195275997186822, guid: d85ffc6116b4bf344a568e7de73eceba, type: 3}
-      propertyPath: m_TagString
-      value: Fish
       objectReference: {fileID: 0}
     - target: {fileID: 9171494498831384863, guid: d85ffc6116b4bf344a568e7de73eceba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1245,10 +1234,6 @@ PrefabInstance:
     - target: {fileID: 761625508187863115, guid: f3d3c476da4bcbf4290a7802c41ee2c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1114298564220806352, guid: f3d3c476da4bcbf4290a7802c41ee2c9, type: 3}
-      propertyPath: m_TagString
-      value: Fish
       objectReference: {fileID: 0}
     - target: {fileID: 5690655064159181208, guid: f3d3c476da4bcbf4290a7802c41ee2c9, type: 3}
       propertyPath: m_Name
@@ -1595,10 +1580,6 @@ PrefabInstance:
     - target: {fileID: 761625508187863115, guid: f3d3c476da4bcbf4290a7802c41ee2c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1114298564220806352, guid: f3d3c476da4bcbf4290a7802c41ee2c9, type: 3}
-      propertyPath: m_TagString
-      value: Fish
       objectReference: {fileID: 0}
     - target: {fileID: 5690655064159181208, guid: f3d3c476da4bcbf4290a7802c41ee2c9, type: 3}
       propertyPath: m_Name
