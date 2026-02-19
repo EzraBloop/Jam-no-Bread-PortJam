@@ -15,6 +15,7 @@ public class Plunger : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
+        transform.position = boat.transform.position;
         OnDisable();
 
         moveAction.performed += MoveInput;
@@ -24,7 +25,7 @@ public class Plunger : MonoBehaviour
 
     void Update()
     {
-        if (!boat.GetComponent<BoatMovement>().inControl)
+        if (!boat.GetComponentInParent<BoatMovement>().inControl)
         {
             RaycastHit2D hit;
             hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
@@ -44,7 +45,7 @@ public class Plunger : MonoBehaviour
                     acending = true;
                 } 
             }
-            if(Vector3.Distance(transform.position, boat.transform.position) < 0.2f)
+            if(Vector3.Distance(transform.position, boat.transform.position) < 0.01f)
             {
                 body.transform.localRotation = Quaternion.Euler(0,0,0);
                 acending = false;
@@ -77,8 +78,8 @@ public class Plunger : MonoBehaviour
 
     public void ReturnToBoat()
     {
-        boat.GetComponent<BoatMovement>().inControl = true;
-        boat.GetComponent<BoatMovement>().OnEnable();
+        boat.GetComponentInParent<BoatMovement>().inControl = true;
+        boat.GetComponentInParent<BoatMovement>().OnEnable();
         OnDisable();
     }
 
