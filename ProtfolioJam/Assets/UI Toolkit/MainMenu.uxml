@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MainStyle.uss?fileID=7433441132597879392&amp;guid=dbf85b6a23f661043a1b220810e8ee43&amp;type=3#MainStyle"/>
+    <ui:VisualElement style="flex-grow: 1; background-image: resource(&quot;FeeshJamTitle&quot;);">
+        <ui:Label text="Working Title" name="Title" class="header"/>
+        <ui:Button text="Play" name="Play" class="button" style="position: absolute; top: 603px; left: 461px;"/>
+        <ui:Button text="Quit" name="Quit" class="button" style="position: absolute; top: 849px; left: 452px;"/>
+    </ui:VisualElement>
+</ui:UXML>
