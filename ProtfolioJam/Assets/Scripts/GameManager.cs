@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public bool fallBoostAvailible;
     public int fishCaptureable;
     public int initialLaunchForce;
+    public int forceMultiplier;
     public float dayTimer;
 
     private void Awake()
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
         fallBoostAvailible = false;
         fishCaptureable = 1;
         initialLaunchForce = 800;
+        forceMultiplier = 1;
         dayTimer = 60f;
     } 
 }
