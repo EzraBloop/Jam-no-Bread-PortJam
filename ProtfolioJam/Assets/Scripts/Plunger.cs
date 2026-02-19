@@ -57,7 +57,10 @@ public class Plunger : MonoBehaviour
     void FixedUpdate()
     {
         rb.AddForce(new Vector2(movementDir.x, 0) * moveSpeed * Time.fixedDeltaTime);
-        rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxSpeed);
+        if(transform.position.y <= 0)
+        { 
+            rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxSpeed);
+        }
         if(movementDir.x > 0.5)
         {
             body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.Euler(0,0, 45), rotaionSpeed * Time.fixedDeltaTime);

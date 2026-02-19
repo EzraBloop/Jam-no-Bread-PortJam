@@ -57,6 +57,7 @@ public class BoatMovement : MonoBehaviour
     {
         inControl = false;
         OnDisable();
+        plunger.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 1000 * Time.deltaTime, ForceMode2D.Impulse);
         plunger.GetComponent<Plunger>().OnEnable();
     }
 }
