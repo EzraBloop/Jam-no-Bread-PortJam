@@ -15,5 +15,10 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        turnSpeed = 100;
+        fallBoostAvailible = false;
+        fishCaptureable = 1;
+        initialLaunchForce = 800;
+
     } 
 }
