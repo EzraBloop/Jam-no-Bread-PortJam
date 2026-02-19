@@ -21,6 +21,5 @@ public class GameManager : MonoBehaviour
         fishCaptureable = 1;
         initialLaunchForce = 800;
         dayTimer = 60f;
-
     } 
 }
