@@ -46,10 +46,12 @@ public class Plunger : MonoBehaviour
             }
             if(Vector3.Distance(transform.position, boat.transform.position) < 0.2f)
             {
+                body.transform.localRotation = Quaternion.Euler(0,0,0);
                 acending = false;
+                rb.linearVelocity = new Vector2(0,0);
                 ReturnToBoat();
             }
-        }       
+        }      
     }
 
     void FixedUpdate()
