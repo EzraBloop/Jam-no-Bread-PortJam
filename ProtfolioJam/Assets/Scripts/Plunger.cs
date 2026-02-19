@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class Plunger : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
-    [SerializeField] InputAction moveAction, recallAction;
+    [SerializeField] InputAction moveAction, recallAction, boostAction;
     [SerializeField] GameObject body, boat, flange;
     public List<GameObject> captures = new List<GameObject>();
     public float fallSpeed, moveSpeed, maxSpeed, rotaionSpeed, returnSpeed;
@@ -29,6 +29,7 @@ public class Plunger : MonoBehaviour
         moveAction.performed += MoveInput;
         moveAction.canceled += MoveInput;
         recallAction.performed += RecallInput;
+        boostAction.performed += BoostInput;
     }
 
     void Update()
@@ -125,6 +126,10 @@ public class Plunger : MonoBehaviour
     public void RecallInput(InputAction.CallbackContext c)
     {
         acending = true;
+    }
+    public void BoostInput(InputAction.CallbackContext c)
+    {
+        
     }
 
     public void OnEnable()
