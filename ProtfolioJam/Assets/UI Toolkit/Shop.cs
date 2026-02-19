@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class Shop : MonoBehaviour
@@ -8,7 +9,7 @@ public class Shop : MonoBehaviour
     VisualElement ve;
 
     public GameManager instance;
-    private Button turn, boost, catchNumber, force;
+    private Button turn, boost, catchNumber, force, backFish;
     public int turnCost, boostCost, catchNumberCost, forceCost;
     private Label shopText;
     private int counter;
@@ -29,6 +30,8 @@ public class Shop : MonoBehaviour
         boost = ui.rootVisualElement.Q<Button>("BoostUpgrade");
         catchNumber = ui.rootVisualElement.Q<Button>("CatchUpgrade");
         force = ui.rootVisualElement.Q<Button>("ForceUpgrade");
+        backFish = ui.rootVisualElement.Q<Button>("ReturnFish");
+
         shopText = ui.rootVisualElement.Q<Label>("ShopKeepText");
     }
 
@@ -61,6 +64,7 @@ public class Shop : MonoBehaviour
         boost.RegisterCallback<ClickEvent>(onBoostUpgrade);
         catchNumber.RegisterCallback<ClickEvent>(onCatchNumberUpgrade);
         force.RegisterCallback<ClickEvent>(onForceUpgrade);
+        backFish.RegisterCallback<ClickEvent>(onReturnFishing);
     }
 
     private void OnDisable()
@@ -69,6 +73,7 @@ public class Shop : MonoBehaviour
         boost.UnregisterCallback<ClickEvent>(onBoostUpgrade);
         catchNumber.UnregisterCallback<ClickEvent>(onCatchNumberUpgrade);
         force.UnregisterCallback<ClickEvent>(onForceUpgrade);
+        backFish.UnregisterCallback<ClickEvent>(onReturnFishing);
     }
 
     public void onTurnUpgrade(ClickEvent evt)
@@ -149,5 +154,10 @@ public class Shop : MonoBehaviour
         {
             force.SetEnabled(false);
         }
+    }
+
+    public void onReturnFishing(ClickEvent evt)
+    {
+        SceneManager.LoadScene("MainFishing");
     }
 }

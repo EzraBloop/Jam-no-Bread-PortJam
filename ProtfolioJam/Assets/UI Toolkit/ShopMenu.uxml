@@ -5,5 +5,6 @@
         <ui:Button text="Boost" name="BoostUpgrade"/>
         <ui:Button text="Catch" name="CatchUpgrade"/>
         <ui:Button text="Force" name="ForceUpgrade"/>
+        <ui:Button text="Return to Feesh" name="ReturnFish"/>
     </ui:VisualElement>
 </ui:UXML>
