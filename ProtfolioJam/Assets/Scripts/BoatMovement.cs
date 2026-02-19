@@ -7,6 +7,7 @@ public class BoatMovement : MonoBehaviour
 {
     public float moveSpeed;
     public float rotSpeed;
+    public float fireForce;
 
     public bool inControl;
 
@@ -57,7 +58,7 @@ public class BoatMovement : MonoBehaviour
     {
         inControl = false;
         OnDisable();
-        plunger.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 1000 * Time.deltaTime, ForceMode2D.Impulse);
+        plunger.GetComponent<Rigidbody2D>().AddForce(Vector2.down * fireForce * Time.deltaTime, ForceMode2D.Impulse);
         plunger.GetComponent<Plunger>().OnEnable();
     }
 }

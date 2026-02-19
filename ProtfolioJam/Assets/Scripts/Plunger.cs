@@ -59,7 +59,11 @@ public class Plunger : MonoBehaviour
         rb.AddForce(new Vector2(movementDir.x, 0) * moveSpeed * Time.fixedDeltaTime);
         if(transform.position.y <= 0)
         { 
-            rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxSpeed);
+          rb.linearDamping = 1;  
+        }
+        else
+        {
+            rb.linearDamping = 0;
         }
         if(movementDir.x > 0.5)
         {

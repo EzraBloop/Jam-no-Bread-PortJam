@@ -401,6 +401,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1419569459}
     - target: {fileID: 4140886674760420311, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: fireForce
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140886674760420311, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
       propertyPath: fire.m_SingletonActionBindings.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1202,6 +1206,10 @@ PrefabInstance:
       propertyPath: boat
       value: 
       objectReference: {fileID: 2061468197}
+    - target: {fileID: 1407730592447017446, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
+      propertyPath: fallSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1979083041133255442, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.23
