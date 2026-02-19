@@ -426,7 +426,7 @@ PrefabInstance:
       objectReference: {fileID: 1419569459}
     - target: {fileID: 4140886674760420311, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
       propertyPath: fireForce
-      value: 800
+      value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: 7775857339750983002, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
       propertyPath: m_Name

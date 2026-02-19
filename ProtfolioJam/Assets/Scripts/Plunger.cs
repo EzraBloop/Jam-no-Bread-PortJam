@@ -1,10 +1,11 @@
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Plunger : MonoBehaviour
 {
     [SerializeField] InputAction moveAction, recallAction;
-    [SerializeField] GameObject body, boat;
+    [SerializeField] GameObject body, boat, flange, captured;
     public float fallSpeed, moveSpeed, maxSpeed, rotaionSpeed, returnSpeed;
     Rigidbody2D rb;
     public Vector2 movementDir;
@@ -32,6 +33,7 @@ public class Plunger : MonoBehaviour
             if (acending)
             {
                 transform.position = Vector3.MoveTowards(transform.position, boat.transform.position, returnSpeed * Time.deltaTime);
+                
             }
             else
             {
@@ -42,16 +44,22 @@ public class Plunger : MonoBehaviour
                 else
                 {
                     Debug.Log(hit.collider.gameObject.tag);
+                    captured = hit.collider.gameObject.transform.parent.gameObject;
                     acending = true;
                 } 
             }
             if(Vector3.Distance(transform.position, boat.transform.position) < 0.01f)
             {
+                Destroy(captured.gameObject);
                 body.transform.localRotation = Quaternion.Euler(0,0,0);
                 acending = false;
                 rb.linearVelocity = new Vector2(0,0);
                 ReturnToBoat();
             }
+            if(captured != null)
+            {
+                captured.transform.position = flange.transform.position;
+            } 
         }      
     }
 
