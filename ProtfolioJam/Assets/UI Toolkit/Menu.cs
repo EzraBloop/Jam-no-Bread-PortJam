@@ -32,6 +32,7 @@ public class Menu : MonoBehaviour
         quit.UnregisterCallback<ClickEvent>(onQuit);
     }
 
+
     public void onPlay(ClickEvent click)
     {
         SceneManager.UnloadSceneAsync("Menu");

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Bruxish_Fish
   m_EditorClassIdentifier: Assembly-CSharp::FishSO
-  fishID: 2
-  fishName: Bruxish
-  fishValue: 100
+  fishID: 0
+  fishName: feesh
+  fishValue: 0
   fishCaught: 0
   fishSold: 0
-  fishSpeed: 0.5
-  fishMaxVelocity: 2
-  prefab: {fileID: 5690655064159181208, guid: f3d3c476da4bcbf4290a7802c41ee2c9, type: 3}
+  fishSpeed: 1
+  fishMaxVelocity: 1
+  prefab: {fileID: 0}

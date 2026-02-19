@@ -1,30 +1,40 @@
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Plunger : MonoBehaviour
 {
-    [SerializeField] InputAction moveAction, recallAction;
-    [SerializeField] GameObject body, boat;
+    [SerializeField] GameManager gameManager;
+    [SerializeField] InputAction moveAction, recallAction, boostAction;
+    [SerializeField] GameObject body, boat, flange;
+    public List<GameObject> captures = new List<GameObject>();
     public float fallSpeed, moveSpeed, maxSpeed, rotaionSpeed, returnSpeed;
+    public int fishCaptureable;
     Rigidbody2D rb;
     public Vector2 movementDir;
 
-    public bool acending;
+    public bool acending, hasBoost;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
+        transform.position = boat.transform.position;
+        gameManager = GameManager.Instance;
+        CheckUpgrades();
         OnDisable();
+        
 
         moveAction.performed += MoveInput;
         moveAction.canceled += MoveInput;
         recallAction.performed += RecallInput;
+        boostAction.performed += BoostInput;
     }
 
     void Update()
     {
-        if (!boat.GetComponent<BoatMovement>().inControl)
+        if (!boat.GetComponentInParent<BoatMovement>().inControl)
         {
             RaycastHit2D hit;
             hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
@@ -40,22 +50,51 @@ public class Plunger : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log(hit.collider.gameObject.tag);
-                    acending = true;
+                    if(hit.collider.gameObject.tag == "Fish")
+                    {
+                        hit.collider.enabled = false;
+                        captures.Add(hit.collider.gameObject.transform.parent.gameObject);
+                    }
+                    if(captures.Count >= fishCaptureable)
+                    {
+                        acending = true;
+                    }
+                    
                 } 
             }
-            if(Vector3.Distance(transform.position, boat.transform.position) < 0.2f)
+            if(Vector3.Distance(transform.position, boat.transform.position) < 0.01f)
             {
+                foreach(GameObject c in captures)
+                {
+                    Destroy(c.gameObject);
+                }
+                body.transform.localRotation = Quaternion.Euler(0,0,0);
                 acending = false;
+                rb.linearVelocity = new Vector2(0,0);
+                captures.Clear();
                 ReturnToBoat();
             }
-        }       
+            if(captures != null)
+            {
+                foreach(GameObject c in captures)
+                {
+                    c.transform.position = flange.transform.position;
+                }
+            } 
+        }      
     }
 
     void FixedUpdate()
     {
         rb.AddForce(new Vector2(movementDir.x, 0) * moveSpeed * Time.fixedDeltaTime);
-        rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxSpeed);
+        if(transform.position.y <= 0)
+        { 
+          rb.linearDamping = 1;  
+        }
+        else
+        {
+            rb.linearDamping = 0;
+        }
         if(movementDir.x > 0.5)
         {
             body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.Euler(0,0, 45), rotaionSpeed * Time.fixedDeltaTime);
@@ -68,9 +107,16 @@ public class Plunger : MonoBehaviour
 
     public void ReturnToBoat()
     {
-        boat.GetComponent<BoatMovement>().inControl = true;
-        boat.GetComponent<BoatMovement>().OnEnable();
+        boat.GetComponentInParent<BoatMovement>().inControl = true;
+        boat.GetComponentInParent<BoatMovement>().OnEnable();
         OnDisable();
+    }
+    public void CheckUpgrades()
+    {
+        moveSpeed = gameManager.turnSpeed;
+        hasBoost = gameManager.fallBoostAvailible;
+        fishCaptureable = gameManager.fishCaptureable;
+        boat.GetComponentInParent<BoatMovement>().fireForce = gameManager.initialLaunchForce;
     }
 
     public void MoveInput(InputAction.CallbackContext c)
@@ -80,6 +126,10 @@ public class Plunger : MonoBehaviour
     public void RecallInput(InputAction.CallbackContext c)
     {
         acending = true;
+    }
+    public void BoostInput(InputAction.CallbackContext c)
+    {
+        //WE BOOSTING
     }
 
     public void OnEnable()

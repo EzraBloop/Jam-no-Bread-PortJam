@@ -53,6 +53,7 @@ MonoBehaviour:
   swimAcceleration: 1
   maxSwimVelocity: 2
   fishBody: {fileID: 5584974740813783897}
+  IsCaught: 0
   Swimming:
     m_PersistentCalls:
       m_Calls: []

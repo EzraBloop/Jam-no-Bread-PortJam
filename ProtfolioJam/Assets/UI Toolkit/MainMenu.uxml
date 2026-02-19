@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UI%20Toolkit/MainStyle.uss?fileID=7433441132597879392&amp;guid=dbf85b6a23f661043a1b220810e8ee43&amp;type=3#MainStyle"/>
     <ui:VisualElement style="flex-grow: 1; background-image: resource(&quot;FeeshJamTitle&quot;);">
         <ui:Label text="Working Title" name="Title" class="header"/>
-        <ui:Button text="Play" name="Play" class="button" style="position: absolute; top: 603px; left: 461px;"/>
-        <ui:Button text="Quit" name="Quit" class="button" style="position: absolute; top: 849px; left: 452px;"/>
+        <ui:Button text="" name="Quit" class="button" style="position: absolute; top: 773px; left: 446px; background-image: resource(&quot;Buttons-Quit&quot;); -unity-background-image-tint-color: rgb(255, 255, 255); width: 200px; height: 100px;"/>
+        <ui:Button text="" name="Play" class="button" style="position: absolute; top: 560px; left: 449px; background-image: resource(&quot;Buttons-Play&quot;); height: 100px; width: 200px;"/>
     </ui:VisualElement>
 </ui:UXML>
