@@ -3,5 +3,6 @@
     <ui:VisualElement style="flex-grow: 1;">
         <ui:Label text="Day" name="Day" enable-rich-text="false" class="h1" style="position: absolute; top: 20px; left: 718px;"/>
         <ui:Label text="TEST" name="DayCounter" enable-rich-text="false" class="h1" style="position: absolute; top: 20px; left: 948px;"/>
+        <ui:ListView item-template="project://database/Assets/UI%20Toolkit/MainMenu.uxml?fileID=9197481963319205126&amp;guid=d29b48f6834a4b040a47b0c12fca5ab7&amp;type=3#MainMenu"/>
     </ui:VisualElement>
 </ui:UXML>
