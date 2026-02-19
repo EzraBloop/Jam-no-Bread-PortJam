@@ -351,6 +351,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoatMovement
   moveSpeed: 5
   rotSpeed: 50
+  fireForce: 800
+  inControl: 0
   move:
     m_Name: Move
     m_Type: 0
@@ -407,7 +409,15 @@ MonoBehaviour:
     m_Id: 34547ed2-6aaf-47ee-a2c2-9cd1c5af5d69
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: d67449c6-309b-4a32-8598-7ee1b33e65ec
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Fire
+      m_Flags: 0
     m_Flags: 0
   gunPivot: {fileID: 1124365798770865521}
   plunger: {fileID: 0}
