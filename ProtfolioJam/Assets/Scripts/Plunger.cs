@@ -67,6 +67,7 @@ public class Plunger : MonoBehaviour
             }
             if(Vector3.Distance(transform.position, boat.transform.position) < 0.01f)
             {
+                SFX.PlayAudioClip(3);
                 foreach(GameObject c in captures)
                 {
                     c.gameObject.GetComponent<Fish>().CatchFish(1);
