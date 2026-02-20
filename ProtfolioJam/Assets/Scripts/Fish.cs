@@ -118,31 +118,17 @@ public class Fish : MonoBehaviour
         if (rb.linearVelocity.magnitude > 0.1)
         {
             var sprite = fishBody.GetComponent<SpriteRenderer>();
-            if (data.direction == FishSO.InitialDirection.LEFT)
-            {
+            
                 if (rb.linearVelocity.x <= 0)
                 {
-                    sprite.flipY = false;
+                    sprite.flipY = true;
 
                 }
                 else
                 {
-                    sprite.flipY = true;
-                }
-
-            }
-            else
-            {
-                if (rb.linearVelocity.x <= 0)
-                {
                     sprite.flipY = false;
-
                 }
-                else
-                {
-                    sprite.flipY = true;
-                }
-            }
+            
 
                 var angle = Mathf.Atan2(tmpVelocity.y, tmpVelocity.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
