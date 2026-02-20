@@ -74,7 +74,10 @@ public class FishInventory : MonoBehaviour
         }
         return caughtList;
     }
-
+    /// <summary>
+    /// Sells all fish in inventory and returns value based on the fish sold
+    /// </summary>
+    /// <returns></returns>
     public float SellAllFish()
     {
         var fishes = GetCaughtFishAndAmount();

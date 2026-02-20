@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ecf1296c33e914da409a4a113288db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fish
-  data: {fileID: 11400000, guid: 57d027b67c155ff46b8536f6dbef053f, type: 2}
+  data: {fileID: 11400000, guid: 8b408ff2292476a47a8177bb6d411b92, type: 2}
   bobSettings:
     waveHeight: 0.5
     waveFrequency: 2
