@@ -59,6 +59,13 @@ public class Fish : MonoBehaviour
             fishBody.transform.localPosition = Vector3.zero; // reset Bob transform changes;
         }
     }
+    public void CatchFish(int amountCaught)
+    {
+        IsCaught = true;
+        data.fishCaught += amountCaught;
+        Destroy(this.gameObject);
+        
+    }
     /// <summary>
     /// sets the spawn location, and intial swim direction;
     /// </summary>
