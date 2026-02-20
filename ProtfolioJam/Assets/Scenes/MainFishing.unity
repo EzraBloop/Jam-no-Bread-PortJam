@@ -558,6 +558,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4140886674760420311, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 330585545}
+    - target: {fileID: 4140886674760420311, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
       propertyPath: plunger
       value: 
       objectReference: {fileID: 1419569459}
