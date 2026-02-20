@@ -356,6 +356,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 399458275944805223, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 399458275944805223, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 399458275944805223, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3006010802895066754, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.06
@@ -1110,15 +1122,15 @@ LineRenderer:
   m_MaskInteraction: 0
   m_Positions:
   - {x: 1.91, y: 4.0775003, z: 0}
-  - {x: 1.4959999, y: 2.0194342, z: 0}
-  - {x: 1.082, y: 0.38499373, z: 0}
-  - {x: 0.668, y: -0.825821, z: 0}
-  - {x: 0.254, y: -1.6130097, z: 0}
-  - {x: -0.16000003, y: -1.9765726, z: 0}
-  - {x: -0.5740001, y: -1.9165096, z: 0}
-  - {x: -0.98800004, y: -1.4328212, z: 0}
-  - {x: -1.4020001, y: -0.52550626, z: 0}
-  - {x: -1.816, y: 0.8054334, z: 0}
+  - {x: 1.5772063, y: 2.2022564, z: 0}
+  - {x: 1.2263668, y: 0.7100107, z: 0}
+  - {x: 0.85748124, y: -0.39923602, z: 0}
+  - {x: 0.47055006, y: -1.1254841, z: 0}
+  - {x: 0.06557298, y: -1.4687334, z: 0}
+  - {x: -0.35745007, y: -1.4289842, z: 0}
+  - {x: -0.7985187, y: -1.0062362, z: 0}
+  - {x: -1.2576334, y: -0.20048928, z: 0}
+  - {x: -1.7347937, y: 0.9882556, z: 0}
   - {x: -2.23, y: 2.56, z: 0}
   m_Parameters:
     serializedVersion: 3
