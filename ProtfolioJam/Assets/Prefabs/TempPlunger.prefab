@@ -272,21 +272,29 @@ MonoBehaviour:
     m_Name: Boost
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 9aef4aba-91d8-4f89-abfe-887ce62af11b
+    m_Id: 39df2942-c17b-41a1-a4d7-38ecd0d19994
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 8d08f70b-f6db-4590-91c2-b7c6e0ad2f7e
+      m_Path: <Keyboard>/f
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Boost
+      m_Flags: 0
     m_Flags: 0
   body: {fileID: 1909765802356708695}
   boat: {fileID: 0}
-  flange: {fileID: 0}
+  flange: {fileID: 1736393950426739275}
   captures: []
   fallSpeed: 2
   moveSpeed: 100
   maxSpeed: 1
   rotaionSpeed: 1
   returnSpeed: 10
-  boostSpeed: 0
+  boostSpeed: 3500
   fishCaptureable: 0
   movementDir: {x: 0, y: 0}
   acending: 0
