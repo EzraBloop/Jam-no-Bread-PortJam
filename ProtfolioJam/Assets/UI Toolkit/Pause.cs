@@ -11,6 +11,7 @@ public class Pause : MonoBehaviour
     Button play, quit;
 
     bool paused = false;
+    public AudioSounds SFX;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class Pause : MonoBehaviour
     {
         if(Keyboard.current.escapeKey.wasPressedThisFrame)
         {
+            SFX.PlayAudioClip(0);
             if(!paused)
             {
                 ve.SetEnabled(true);

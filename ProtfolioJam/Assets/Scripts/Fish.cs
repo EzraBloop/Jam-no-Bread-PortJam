@@ -28,6 +28,7 @@ public class Fish : MonoBehaviour
 
     public void Awake()
     {
+        
         rb = GetComponent<Rigidbody2D>();
         //InitializeFish(transform.right, this.transform.position); // TEST
         rb.gravityScale = 0f;
@@ -55,6 +56,10 @@ public class Fish : MonoBehaviour
 
 
         if (moveDir == Vector2.zero) moveDir = transform.right;
+        if (this.data.direction == FishSO.InitialDirection.LEFT)
+        {
+            fishBody.GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 
     public void Update()
@@ -73,7 +78,7 @@ public class Fish : MonoBehaviour
         IsCaught = true;
         FishInventory.Instance.EditFishCount(this.data, 1);
         Destroy(this.gameObject);
-        
+
     }
     /// <summary>
     /// sets the spawn location, and intial swim direction;
@@ -118,6 +123,7 @@ public class Fish : MonoBehaviour
         if (rb.linearVelocity.magnitude > 0.1)
         {
             var sprite = fishBody.GetComponent<SpriteRenderer>();
+
             if (rb.linearVelocity.x <= 0)
             {
                 sprite.flipY = true;
@@ -127,19 +133,22 @@ public class Fish : MonoBehaviour
             {
                 sprite.flipY = false;
             }
-
-            var angle = Mathf.Atan2(tmpVelocity.y, tmpVelocity.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, angle);
-
         }
 
 
+
+        var angle = Mathf.Atan2(tmpVelocity.y, tmpVelocity.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
     }
+
+
+
     protected void Pathing(List<RaycastHit2D> check)
     {
 
         //rb.linearVelocity = Vector2.zero;
-        
+
         moveDir *= -1;
     }
     #endregion
