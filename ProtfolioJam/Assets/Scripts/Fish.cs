@@ -43,6 +43,7 @@ public class Fish : MonoBehaviour
         else
         {
             FishID = -1;
+            Debug.LogWarning($"{gameObject.name}'s Scriptable Object is missing");
         }
 
 
