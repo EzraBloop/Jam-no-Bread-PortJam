@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9171494498831384863}
   - component: {fileID: 8923830833719917909}
   - component: {fileID: 2585118904328346361}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FEESH
   m_TagString: Fish
   m_Icon: {fileID: 0}
@@ -74,9 +74,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fish
   data: {fileID: 11400000, guid: 8b408ff2292476a47a8177bb6d411b92, type: 2}
-  bobSettings:
-    waveHeight: 0.5
-    waveFrequency: 2
   swimAcceleration: 1
   maxSwimVelocity: 2
   fishBody: {fileID: 6970195275997186822}
@@ -95,7 +92,7 @@ GameObject:
   - component: {fileID: 6938877235791216769}
   - component: {fileID: 3728800422473024112}
   - component: {fileID: 6188285017895273242}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Fish
   m_Icon: {fileID: 0}
