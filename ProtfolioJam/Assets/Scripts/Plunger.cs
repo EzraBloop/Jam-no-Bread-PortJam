@@ -116,7 +116,7 @@ public class Plunger : MonoBehaviour
         moveSpeed = gameManager.turnSpeed;
         hasBoost = gameManager.fallBoostAvailible;
         fishCaptureable = gameManager.fishCaptureable;
-        boat.GetComponentInParent<BoatMovement>().fireForce = gameManager.initialLaunchForce;
+        boat.GetComponentInParent<BoatMovement>().fireForce = gameManager.initialLaunchForce * gameManager.forceMultiplier;
     }
 
     public void MoveInput(InputAction.CallbackContext c)
