@@ -53,7 +53,7 @@ public class Shop : MonoBehaviour
             catchNumber.SetEnabled(false);
         }
 
-        if (instance.forceMultiplier == 10)
+        if (instance.forceMultiplier == 4)
         {
             force.SetEnabled(false);
         }
@@ -137,7 +137,7 @@ public class Shop : MonoBehaviour
     {
         if (instance.currentBalance > forceCost)
         {
-            if (counter < 5)
+            if (counter < 4)
             {
                 instance.currentBalance -= forceCost;
                 instance.forceMultiplier *= 2;
@@ -150,7 +150,7 @@ public class Shop : MonoBehaviour
 
         }
 
-        if (instance.forceMultiplier == 10)
+        if (counter == 4)
         {
             force.SetEnabled(false);
         }
