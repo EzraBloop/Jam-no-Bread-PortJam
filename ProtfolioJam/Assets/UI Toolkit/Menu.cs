@@ -48,7 +48,6 @@ public class Menu : MonoBehaviour
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(0.3f);
-        SceneManager.UnloadSceneAsync("Menu");
         SceneManager.LoadScene("MainFishing", LoadSceneMode.Single);
     }
 }
