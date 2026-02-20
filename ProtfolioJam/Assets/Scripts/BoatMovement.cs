@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 
 public class BoatMovement : MonoBehaviour
 {
+
+    public Camera cam;
+
     public float moveSpeed;
     public float rotSpeed;
     public float fireForce;
@@ -21,7 +24,7 @@ public class BoatMovement : MonoBehaviour
     public event Action<Vector2> OnMove;
     Rigidbody2D rb;
 
-
+    private Earning ear;
     private void Awake()
     {
         move.performed += GetMoveVector;
@@ -46,6 +49,19 @@ public class BoatMovement : MonoBehaviour
     {
         transform.position += new Vector3(movementDirection.x, 0, 0) * moveSpeed * Time.deltaTime;
         gunPivot.transform.localEulerAngles += new Vector3(0, 0, -movementDirection.y) * rotSpeed * Time.deltaTime;
+
+        if(Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            if(cam.depth == 0)
+            {
+                cam.depth = -2;
+                ear.DisplayFish();
+            }
+            else
+            {
+                cam.depth = 0;
+            }
+        }
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
