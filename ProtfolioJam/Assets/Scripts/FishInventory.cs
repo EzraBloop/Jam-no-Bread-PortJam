@@ -40,7 +40,7 @@ public class FishInventory : MonoBehaviour
         fishList[fish] += change;
         Debug.Log($"{fish.fishName} : {fishList[fish].ToString()}");
     }
-    public float SellFish(FishSO fish)
+    private float SellFish(FishSO fish)
     {
         var money = fish.fishValue * fishList[fish];
 
@@ -84,8 +84,7 @@ public class FishInventory : MonoBehaviour
         float amount = 0;
         foreach (var fish in fishes)
         {
-            amount += (fish.Key.fishValue * fish.Value);
-            fishes[fish.Key] = 0;
+            amount += SellFish(fish.Key);
         }
         return amount;
     }
