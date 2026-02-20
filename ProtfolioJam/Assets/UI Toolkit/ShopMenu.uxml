@@ -5,6 +5,8 @@
         <ui:Button text="Boost" name="BoostUpgrade"/>
         <ui:Button text="Catch" name="CatchUpgrade"/>
         <ui:Button text="Force" name="ForceUpgrade"/>
+        <ui:Button text="Length of Day" name="DayUpgrade"/>
         <ui:Button text="Return to Feesh" name="ReturnFish"/>
+        <ui:Label text="Sample Text " name="ShopKeepText" style="font-size: 40px;"/>
     </ui:VisualElement>
 </ui:UXML>
