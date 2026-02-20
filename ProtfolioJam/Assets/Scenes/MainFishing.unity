@@ -403,9 +403,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishInventory
   fishScriptableObjects:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: c5bcd6c1d06ea584a814fd4887900022, type: 2}
   - {fileID: 11400000, guid: 08f9abc171a340d49bd4ef7ecc45979d, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 8b408ff2292476a47a8177bb6d411b92, type: 2}
 --- !u!1 &211904727
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +561,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 4140886674760420311, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: ear
+      value: 
+      objectReference: {fileID: 316209905}
     - target: {fileID: 4140886674760420311, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
       propertyPath: plunger
       value: 
