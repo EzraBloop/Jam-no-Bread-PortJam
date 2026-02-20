@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Fish_Placeholder
   m_EditorClassIdentifier: Assembly-CSharp::FishSO
   fishID: 0
+  direction: 1
   fishName: 
   fishValue: 0
+  fishCaught: 0
   fishSpeed: 1
-  fishMaxSpeed: 1
+  fishMaxVelocity: 1
   prefab: {fileID: 3053531858982958890, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
+  fishSpawnWeight: 0

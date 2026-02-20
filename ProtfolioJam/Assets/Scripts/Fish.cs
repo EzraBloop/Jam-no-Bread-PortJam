@@ -38,6 +38,7 @@ public class Fish : MonoBehaviour
             maxSwimVelocity = data.fishMaxVelocity;
             FishID = data.fishID;
 
+
         }
         else
         {
