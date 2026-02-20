@@ -13,6 +13,7 @@ public class Shop : MonoBehaviour
     public int turnCost, boostCost, catchNumberCost, forceCost, dayCost;
     private Label shopText;
     private int counter;
+    public AudioSounds SFX;
 
     private void Awake()
     {
@@ -41,7 +42,7 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
-
+        SFX.PlayAudioClip(Random.Range(0,3));
         if (instance.turnSpeed >= 133)
         {
             turn.SetEnabled(false);
@@ -97,6 +98,7 @@ public class Shop : MonoBehaviour
                 instance.turnSpeed += 11;
                 turnCost *= 2;
                 Purchase();
+                SFX.PlayAudioClip(5);
             }
         }
         else
@@ -197,10 +199,12 @@ public class Shop : MonoBehaviour
     public void NotEnough()
     {
         shopText.text = "You don't have the money for that, come back when you're a little, mroew, richer!";
+        SFX.PlayAudioClip(4);
     }
 
     public void Purchase()
     {
         shopText.text = "Thank you for shopping at Moewshu's shop!";
+        SFX.PlayAudioClip(5);
     }
 }

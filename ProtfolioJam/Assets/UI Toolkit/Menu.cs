@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -11,6 +13,8 @@ public class Menu : MonoBehaviour
     Button play, quit;
     public AudioSounds SFX;
 
+    private List<Button> menuButtons = new List<Button>();
+
     private void Awake()
     {
         ui = GetComponent<UIDocument>();
@@ -18,6 +22,12 @@ public class Menu : MonoBehaviour
 
         play = ui.rootVisualElement.Q<Button>("Play");
         quit = ui.rootVisualElement.Q<Button>("Quit");
+
+        menuButtons = ui.rootVisualElement.Query<Button>().ToList();
+        for (int i = 0; i < menuButtons.Count; i++)
+        {
+            menuButtons[i].RegisterCallback<ClickEvent>(OnAllButtonsClick);
+        }
     }
 
     private void OnEnable()
@@ -35,14 +45,19 @@ public class Menu : MonoBehaviour
 
     public void onPlay(ClickEvent click)
     {
-        SFX.PlayAudioClip(0);
+        //SFX.PlayAudioClip(0);
         StartCoroutine(Delay());
     }
 
     public void onQuit(ClickEvent click)
     {
-        SFX.PlayAudioClip(0);
+        //SFX.PlayAudioClip(0);
         Application.Quit();
+    }
+
+    private void OnAllButtonsClick(ClickEvent evt)
+    {
+        SFX.PlayAudioClip(0);
     }
 
     IEnumerator Delay()
