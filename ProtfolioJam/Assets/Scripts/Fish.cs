@@ -37,7 +37,14 @@ public class Fish : MonoBehaviour
             swimAcceleration = data.fishSpeed;
             maxSwimVelocity = data.fishMaxVelocity;
             FishID = data.fishID;
-
+            if (data.direction == FishSO.InitialDirection.LEFT)
+            {
+                moveDir = -transform.right;
+            }
+            else
+            {
+                moveDir = transform.right;
+            }
 
         }
         else
@@ -64,7 +71,7 @@ public class Fish : MonoBehaviour
     public void CatchFish(int amountCaught)
     {
         IsCaught = true;
-        //data.fishCaught += amountCaught;
+        FishInventory.Instance.EditFishCount(this.data, 1);
         Destroy(this.gameObject);
         
     }
