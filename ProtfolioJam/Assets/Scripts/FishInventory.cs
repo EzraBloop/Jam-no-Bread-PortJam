@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class FishInventory : MonoBehaviour
@@ -22,10 +21,10 @@ public class FishInventory : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         IntializeDictonary();
     }
-    private void IntializeDictonary() 
+    private void IntializeDictonary()
     {
         fishList.Clear();
-        foreach (var  fish in fishScriptableObjects)
+        foreach (var fish in fishScriptableObjects)
         {
             fishList.Add(fish, 0);
         }
@@ -48,7 +47,7 @@ public class FishInventory : MonoBehaviour
         fishList[fish] = 0;
 
         return money;
-        
+
     }
     public List<FishSO> GetCaughtFish()
     {
@@ -62,5 +61,17 @@ public class FishInventory : MonoBehaviour
             }
         }
         return list;
+    }
+    public Dictionary<FishSO, int> GetCaughtFishAndAmount()
+    {
+        Dictionary<FishSO, int> caughtList = new();
+        foreach (var fish in fishList)
+        {
+            if (fish.Value > 0)
+            {
+                caughtList.Add(fish.Key,fish.Value);
+            }
+        }
+        return caughtList;
     }
 }
