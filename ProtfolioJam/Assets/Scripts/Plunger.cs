@@ -83,7 +83,12 @@ public class Plunger : MonoBehaviour
                     c.transform.position = flange.transform.position;
                 }
             } 
-        }      
+        }
+        else
+        {
+            transform.position = boat.transform.position;
+        }
+             
     }
 
     void FixedUpdate()
