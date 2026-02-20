@@ -12,6 +12,11 @@ public class Earning : MonoBehaviour
 
     void OnEnable()
     {
+  
+    }
+
+    public void DisplayFish()
+    {
         inventory = FishInventory.Instance;
         fishes = inventory.GetCaughtFishAndAmount();
 
@@ -21,14 +26,11 @@ public class Earning : MonoBehaviour
 
         // Create a ScrollView (or query it from UXML)
         scrollView = root.Q<ScrollView>("FishList");
-        
+
 
         // Add a title
         scrollView.Add(new Label("Fish Caught This Day"));
-    }
 
-    public void DisplayFish()
-    {
         // Loop to create and add items dynamically
         foreach (var fish in fishes)
         {
