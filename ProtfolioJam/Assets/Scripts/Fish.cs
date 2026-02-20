@@ -11,13 +11,6 @@ public class Fish : MonoBehaviour
     public int FishID { get; private set; }
 
     [SerializeField] protected FishSO data;
-    [Serializable]
-    public struct BobSettings
-    {
-        public float waveHeight;
-        public float waveFrequency;
-    }
-    [SerializeField] protected BobSettings bobSettings = new BobSettings { waveHeight = 0.5f, waveFrequency = 2f };
 
     [SerializeField] protected float swimAcceleration = 1, maxSwimVelocity = 2; //overwritten by data if present
     [Space(10)][SerializeField] protected GameObject fishBody;

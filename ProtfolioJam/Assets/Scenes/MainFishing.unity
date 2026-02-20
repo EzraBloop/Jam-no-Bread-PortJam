@@ -1431,6 +1431,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 70be9de325a682a40a5c92ce51fd78c9, type: 3}
   - {fileID: 8300000, guid: fe04c31d3d6f66d4ba8c42c8f7b1ba86, type: 3}
   - {fileID: 8300000, guid: f8c97a4fbec3ff843a437506697f1ffb, type: 3}
+  - {fileID: 8300000, guid: 989678b724e73cc44a9c423be01ef7ce, type: 3}
 --- !u!82 &560752466
 AudioSource:
   m_ObjectHideFlags: 0
