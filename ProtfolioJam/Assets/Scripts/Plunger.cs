@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -9,12 +10,12 @@ public class Plunger : MonoBehaviour
     [SerializeField] InputAction moveAction, recallAction, boostAction;
     [SerializeField] GameObject body, boat, flange;
     public List<GameObject> captures = new List<GameObject>();
-    public float fallSpeed, moveSpeed, maxSpeed, rotaionSpeed, returnSpeed;
+    public float fallSpeed, moveSpeed, maxSpeed, rotaionSpeed, returnSpeed, boostSpeed;
     public int fishCaptureable;
     Rigidbody2D rb;
     public Vector2 movementDir;
 
-    public bool acending, hasBoost;
+    public bool acending, hasBoost, boostCooldown;
 
     void Start()
     {
@@ -66,7 +67,7 @@ public class Plunger : MonoBehaviour
             {
                 foreach(GameObject c in captures)
                 {
-                    Destroy(c.gameObject);
+                    c.gameObject.GetComponent<Fish>().CatchFish(1);
                 }
                 body.transform.localRotation = Quaternion.Euler(0,0,0);
                 acending = false;
@@ -129,17 +130,30 @@ public class Plunger : MonoBehaviour
     }
     public void BoostInput(InputAction.CallbackContext c)
     {
-        //WE BOOSTING
+        if(hasBoost && !boostCooldown)
+        {
+            rb.AddForce(Vector2.down * boostSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            boostCooldown = true;
+            StartCoroutine(BoostCool());
+        }
+        
+    }
+    IEnumerator BoostCool()
+    {
+        yield return new WaitForSeconds(5);
+        boostCooldown = false;
     }
 
     public void OnEnable()
     {
         moveAction.Enable();
         recallAction.Enable();
+        boostAction.Enable();
     }
     public void OnDisable()
     {
         moveAction.Disable();
         recallAction.Disable();
+        boostAction.Disable();
     }
 }
