@@ -15,6 +15,7 @@ public class Plunger : MonoBehaviour
     public Vector2 movementDir;
 
     public bool acending, hasBoost, boostCooldown;
+    public AudioSounds SFX;
 
     void Start()
     {
@@ -53,6 +54,7 @@ public class Plunger : MonoBehaviour
                 {
                     if(hit.collider.gameObject.tag == "Fish")
                     {
+                        SFX.PlayAudioClip(2);
                         hit.collider.enabled = false;
                         captures.Add(hit.collider.gameObject.transform.parent.gameObject);
                     }

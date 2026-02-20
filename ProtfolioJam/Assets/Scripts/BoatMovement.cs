@@ -25,6 +25,7 @@ public class BoatMovement : MonoBehaviour
     Rigidbody2D rb;
 
     public Earning ear;
+    public AudioSounds SFX;
     private void Awake()
     {
         move.performed += GetMoveVector;
@@ -76,6 +77,7 @@ public class BoatMovement : MonoBehaviour
 
     public void FirePlunger(InputAction.CallbackContext c)
     {
+        SFX.PlayAudioClip(1);
         plunger.GetComponent<Rigidbody2D>().AddForce(barrel.transform.TransformDirection(Vector3.down) * fireForce * Time.deltaTime, ForceMode2D.Impulse);
         inControl = false;
         plunger.GetComponent<Plunger>().OnEnable();
