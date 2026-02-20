@@ -24,6 +24,7 @@ public class Plunger : MonoBehaviour
         transform.position = boat.transform.position;
         gameManager = GameManager.Instance;
         CheckUpgrades();
+        Dissapear();
         OnDisable();
         
 
@@ -74,6 +75,7 @@ public class Plunger : MonoBehaviour
                 rb.linearVelocity = new Vector2(0,0);
                 captures.Clear();
                 ReturnToBoat();
+                Dissapear();
             }
             if(captures != null)
             {
@@ -118,6 +120,14 @@ public class Plunger : MonoBehaviour
         hasBoost = gameManager.fallBoostAvailible;
         fishCaptureable = gameManager.fishCaptureable;
         boat.GetComponentInParent<BoatMovement>().fireForce = gameManager.initialLaunchForce * gameManager.forceMultiplier;
+    }
+    public void Dissapear()
+    {
+        body.SetActive(false);
+    }
+    public void Reappear()
+    {
+        body.SetActive(true);
     }
 
     public void MoveInput(InputAction.CallbackContext c)

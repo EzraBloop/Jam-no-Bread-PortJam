@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4e548142bd86541ae59868d2c02290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Plunger
+  gameManager: {fileID: 0}
   moveAction:
     m_Name: Move
     m_Type: 0
@@ -267,16 +268,38 @@ MonoBehaviour:
       m_Action: Recall
       m_Flags: 0
     m_Flags: 0
+  boostAction:
+    m_Name: Boost
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 39df2942-c17b-41a1-a4d7-38ecd0d19994
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 8d08f70b-f6db-4590-91c2-b7c6e0ad2f7e
+      m_Path: <Keyboard>/f
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Boost
+      m_Flags: 0
+    m_Flags: 0
   body: {fileID: 1909765802356708695}
   boat: {fileID: 0}
-  flange: {fileID: 0}
+  flange: {fileID: 1736393950426739275}
+  captures: []
   fallSpeed: 2
   moveSpeed: 100
   maxSpeed: 1
   rotaionSpeed: 1
   returnSpeed: 10
+  boostSpeed: 3500
+  fishCaptureable: 0
   movementDir: {x: 0, y: 0}
   acending: 0
+  hasBoost: 0
+  boostCooldown: 0
 --- !u!50 &8779445311346839361
 Rigidbody2D:
   serializedVersion: 5
