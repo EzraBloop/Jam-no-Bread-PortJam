@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -8,6 +9,7 @@ public class Menu : MonoBehaviour
     VisualElement ve;
 
     Button play, quit;
+    public AudioSounds SFX;
 
     private void Awake()
     {
@@ -33,12 +35,20 @@ public class Menu : MonoBehaviour
 
     public void onPlay(ClickEvent click)
     {
-        SceneManager.UnloadSceneAsync("Menu");
-        SceneManager.LoadScene("MainFishing", LoadSceneMode.Single);
+        SFX.PlayAudioClip(0);
+        StartCoroutine(Delay());
     }
 
     public void onQuit(ClickEvent click)
     {
+        SFX.PlayAudioClip(0);
         Application.Quit();
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(0.3f);
+        SceneManager.UnloadSceneAsync("Menu");
+        SceneManager.LoadScene("MainFishing", LoadSceneMode.Single);
     }
 }
