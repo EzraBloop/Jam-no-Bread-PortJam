@@ -1,35 +1,42 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Earning : MonoBehaviour
 {
     UIDocument uiDocument;
-    public int numberOfItems = 100;
+    ScrollView scrollView;
 
     FishInventory inventory;
+    public Dictionary<FishSO, int> fishes;
 
     void OnEnable()
     {
-        //inventory = FishInventory;
+        inventory = FishInventory.Instance;
+        fishes = inventory.GetCaughtFishAndAmount();
 
         // Get the root visual element
         uiDocument = GetComponent<UIDocument>();
         var root = uiDocument.rootVisualElement;
 
         // Create a ScrollView (or query it from UXML)
-        var scrollView = root.Q<ScrollView>("FishList");
+        scrollView = root.Q<ScrollView>("FishList");
         
 
         // Add a title
         scrollView.Add(new Label("Fish Caught This Day"));
+    }
 
+    public void DisplayFish()
+    {
         // Loop to create and add items dynamically
-        for (int i = 0; i < inventory.fishList.Count; ++i)
+        foreach (var fish in fishes)
         {
             var newItem = new Label
             {
-                //text = inventory.fishList. + i
-            }
+                text = fish.Key.fishName + " " + fish.Value
+            };
+
             // Add the new item directly to the ScrollView
             scrollView.Add(newItem);
         }
