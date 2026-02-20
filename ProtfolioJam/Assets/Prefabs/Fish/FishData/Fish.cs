@@ -182,6 +182,12 @@ public class Fish : MonoBehaviour
 public class FishSO : ScriptableObject
 {
     public int fishID = 0;
+    public enum InitialDirection
+    {
+        LEFT,
+        RIGHT
+    }
+    public InitialDirection direction = InitialDirection.LEFT;
 
     [Header("Fish Stats")]
     [Space(10)]
@@ -194,6 +200,7 @@ public class FishSO : ScriptableObject
     public float fishMaxVelocity = 1;
 
     public GameObject prefab;
+    public int fishSpawnWeight;
 
     public void ClearFishCaught()
     {
