@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class Shop : MonoBehaviour
@@ -8,8 +9,10 @@ public class Shop : MonoBehaviour
     VisualElement ve;
 
     public GameManager instance;
-    public Button turn, boost, catchNumber, force;
+    private Button turn, boost, catchNumber, force, backFish;
     public int turnCost, boostCost, catchNumberCost, forceCost;
+    private Label shopText;
+    private int counter;
 
     private void Awake()
     {
@@ -18,7 +21,7 @@ public class Shop : MonoBehaviour
         turnCost = 10;
         boostCost = 50;
         catchNumberCost = 20;
-        forceCost = 10;
+        forceCost = 5;
 
         ui = GetComponent<UIDocument>();
         ve = ui.rootVisualElement as VisualElement;
@@ -27,6 +30,9 @@ public class Shop : MonoBehaviour
         boost = ui.rootVisualElement.Q<Button>("BoostUpgrade");
         catchNumber = ui.rootVisualElement.Q<Button>("CatchUpgrade");
         force = ui.rootVisualElement.Q<Button>("ForceUpgrade");
+        backFish = ui.rootVisualElement.Q<Button>("ReturnFish");
+
+        shopText = ui.rootVisualElement.Q<Label>("ShopKeepText");
     }
 
     private void Start()
@@ -41,6 +47,16 @@ public class Shop : MonoBehaviour
         {
             boost.SetEnabled(false);
         }
+
+        if (instance.fishCaptureable == 5)
+        {
+            catchNumber.SetEnabled(false);
+        }
+
+        if (instance.forceMultiplier == 4)
+        {
+            force.SetEnabled(false);
+        }
     }
     private void OnEnable()
     {
@@ -48,6 +64,7 @@ public class Shop : MonoBehaviour
         boost.RegisterCallback<ClickEvent>(onBoostUpgrade);
         catchNumber.RegisterCallback<ClickEvent>(onCatchNumberUpgrade);
         force.RegisterCallback<ClickEvent>(onForceUpgrade);
+        backFish.RegisterCallback<ClickEvent>(onReturnFishing);
     }
 
     private void OnDisable()
@@ -56,6 +73,7 @@ public class Shop : MonoBehaviour
         boost.UnregisterCallback<ClickEvent>(onBoostUpgrade);
         catchNumber.UnregisterCallback<ClickEvent>(onCatchNumberUpgrade);
         force.UnregisterCallback<ClickEvent>(onForceUpgrade);
+        backFish.UnregisterCallback<ClickEvent>(onReturnFishing);
     }
 
     public void onTurnUpgrade(ClickEvent evt)
@@ -109,14 +127,37 @@ public class Shop : MonoBehaviour
 
         }
 
-        if (instance.turnSpeed == 133)
+        if (instance.fishCaptureable == 5)
         {
-            turn.SetEnabled(false);
+            catchNumber.SetEnabled(false);
         }
     }
 
     public void onForceUpgrade(ClickEvent evt)
     {
+        if (instance.currentBalance > forceCost)
+        {
+            if (counter < 4)
+            {
+                instance.currentBalance -= forceCost;
+                instance.forceMultiplier *= 2;
+                forceCost *= 2;
+                counter ++;
+            }
+        }
+        else
+        {
 
+        }
+
+        if (counter == 4)
+        {
+            force.SetEnabled(false);
+        }
+    }
+
+    public void onReturnFishing(ClickEvent evt)
+    {
+        SceneManager.LoadScene("MainFishing");
     }
 }
