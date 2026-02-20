@@ -63,6 +63,7 @@ public class Pause : MonoBehaviour
 
     public void onPlay(ClickEvent click)
     {
+        SFX.PlayAudioClip(4);
         paused = false;
         Time.timeScale = 1.0f;
         ve.SetEnabled(false);
@@ -71,6 +72,7 @@ public class Pause : MonoBehaviour
 
     public void onQuit(ClickEvent click)
     {
+        SFX.PlayAudioClip(4);
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("Menu");
     }
