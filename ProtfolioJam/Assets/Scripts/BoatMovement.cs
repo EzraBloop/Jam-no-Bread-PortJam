@@ -47,6 +47,10 @@ public class BoatMovement : MonoBehaviour
         transform.position += new Vector3(movementDirection.x, 0, 0) * moveSpeed * Time.deltaTime;
         gunPivot.transform.localEulerAngles += new Vector3(0, 0, -movementDirection.y) * rotSpeed * Time.deltaTime;
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        movementDirection.x = 0;
+    }
 
     public void GetMoveVector(InputAction.CallbackContext c)
     {
