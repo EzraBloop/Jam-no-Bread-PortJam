@@ -59,6 +59,13 @@ public class Fish : MonoBehaviour
             fishBody.transform.localPosition = Vector3.zero; // reset Bob transform changes;
         }
     }
+    public void CatchFish(int amountCaught)
+    {
+        IsCaught = true;
+        data.fishCaught += amountCaught;
+        Destroy(this.gameObject);
+        
+    }
     /// <summary>
     /// sets the spawn location, and intial swim direction;
     /// </summary>
@@ -175,17 +182,29 @@ public class Fish : MonoBehaviour
 public class FishSO : ScriptableObject
 {
     public int fishID = 0;
+
     [Header("Fish Stats")]
     [Space(10)]
     public string fishName = "feesh";
     public float fishValue = 0;
     public int fishCaught = 0;
-    public int fishSold = 0;
+
     [Space(10)]
     public float fishSpeed = 1;
     public float fishMaxVelocity = 1;
 
     public GameObject prefab;
 
+    public void ClearFishCaught()
+    {
+        fishCaught = 0;
 
+    }
+    public float SellFish()
+    {
+        float valueReturn = 0;
+        valueReturn = fishValue * fishCaught;
+        ClearFishCaught();
+        return valueReturn;
+    } 
 }

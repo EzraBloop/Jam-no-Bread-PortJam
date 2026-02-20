@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MainStyle.uss?fileID=7433441132597879392&amp;guid=dbf85b6a23f661043a1b220810e8ee43&amp;type=3#MainStyle"/>
+    <ui:VisualElement style="flex-grow: 1; background-image: resource(&quot;Map&quot;);">
+        <ui:Button text="" name="Play" class="button" style="position: absolute; top: 422px; left: 700px; width: 381px; height: 139px; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;"/>
+        <ui:Button text="" name="Quit" class="button" style="position: absolute; top: 669px; left: 704px; width: 381px; height: 139px; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;"/>
+    </ui:VisualElement>
+</ui:UXML>
