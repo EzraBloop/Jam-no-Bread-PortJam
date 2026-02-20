@@ -26,7 +26,7 @@ public class Fish : MonoBehaviour
     public bool IsCaught;
     public UnityEvent<Vector2> Swimming;
 
-    public void Start()
+    public void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         //InitializeFish(transform.right, this.transform.position); // TEST
@@ -64,7 +64,7 @@ public class Fish : MonoBehaviour
     public void CatchFish(int amountCaught)
     {
         IsCaught = true;
-        data.fishCaught += amountCaught;
+        //data.fishCaught += amountCaught;
         Destroy(this.gameObject);
         
     }
@@ -179,41 +179,4 @@ public class Fish : MonoBehaviour
     #endregion
 
 }
-[CreateAssetMenu(fileName = "FishData", menuName = "Fish/Fish Data")]
-[Serializable]
-public class FishSO : ScriptableObject
-{
-    public int fishID = 0;
-    public enum InitialDirection
-    {
-        LEFT,
-        RIGHT
-    }
-    public InitialDirection direction = InitialDirection.LEFT;
 
-    [Header("Fish Stats")]
-    [Space(10)]
-    public string fishName = "feesh";
-    public float fishValue = 0;
-    public int fishCaught = 0;
-
-    [Space(10)]
-    public float fishSpeed = 1;
-    public float fishMaxVelocity = 1;
-
-    public GameObject prefab;
-    public int fishSpawnWeight;
-
-    public void ClearFishCaught()
-    {
-        fishCaught = 0;
-
-    }
-    public float SellFish()
-    {
-        float valueReturn = 0;
-        valueReturn = fishValue * fishCaught;
-        ClearFishCaught();
-        return valueReturn;
-    } 
-}
