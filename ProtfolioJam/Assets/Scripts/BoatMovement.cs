@@ -24,7 +24,7 @@ public class BoatMovement : MonoBehaviour
     public event Action<Vector2> OnMove;
     Rigidbody2D rb;
 
-    private Earning ear;
+    public Earning ear;
     private void Awake()
     {
         move.performed += GetMoveVector;
