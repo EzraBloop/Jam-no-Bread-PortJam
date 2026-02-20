@@ -74,4 +74,16 @@ public class FishInventory : MonoBehaviour
         }
         return caughtList;
     }
+
+    public float SellAllFish()
+    {
+        var fishes = GetCaughtFishAndAmount();
+        float amount = 0;
+        foreach (var fish in fishes)
+        {
+            amount += (fish.Key.fishValue * fish.Value);
+            fishes[fish.Key] = 0;
+        }
+        return amount;
+    }
 }

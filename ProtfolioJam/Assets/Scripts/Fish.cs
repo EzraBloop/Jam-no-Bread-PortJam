@@ -73,7 +73,7 @@ public class Fish : MonoBehaviour
         IsCaught = true;
         FishInventory.Instance.EditFishCount(this.data, 1);
         Destroy(this.gameObject);
-        
+
     }
     /// <summary>
     /// sets the spawn location, and intial swim direction;
@@ -118,17 +118,33 @@ public class Fish : MonoBehaviour
         if (rb.linearVelocity.magnitude > 0.1)
         {
             var sprite = fishBody.GetComponent<SpriteRenderer>();
-            if (rb.linearVelocity.x <= 0)
+            if (data.direction == FishSO.InitialDirection.LEFT)
             {
-                sprite.flipY = true;
+                if (rb.linearVelocity.x <= 0)
+                {
+                    sprite.flipY = false;
+
+                }
+                else
+                {
+                    sprite.flipY = true;
+                }
 
             }
             else
             {
-                sprite.flipY = false;
+                if (rb.linearVelocity.x <= 0)
+                {
+                    sprite.flipY = false;
+
+                }
+                else
+                {
+                    sprite.flipY = true;
+                }
             }
 
-            var angle = Mathf.Atan2(tmpVelocity.y, tmpVelocity.x) * Mathf.Rad2Deg;
+                var angle = Mathf.Atan2(tmpVelocity.y, tmpVelocity.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
         }
@@ -139,7 +155,7 @@ public class Fish : MonoBehaviour
     {
 
         //rb.linearVelocity = Vector2.zero;
-        
+
         moveDir *= -1;
     }
     #endregion
