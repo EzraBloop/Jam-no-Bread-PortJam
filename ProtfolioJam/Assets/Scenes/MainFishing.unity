@@ -894,6 +894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 343561900}
   - component: {fileID: 343561899}
+  - component: {fileID: 343561901}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -937,6 +938,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &343561901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343561898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ec8bef7a63f0b4ca4c997130cd576c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FishInventory
+  fishScriptableObjects:
+  - {fileID: 11400000, guid: 8b408ff2292476a47a8177bb6d411b92, type: 2}
+  - {fileID: 11400000, guid: c5bcd6c1d06ea584a814fd4887900022, type: 2}
+  - {fileID: 11400000, guid: 08f9abc171a340d49bd4ef7ecc45979d, type: 2}
 --- !u!1 &351364390
 GameObject:
   m_ObjectHideFlags: 0
