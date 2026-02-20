@@ -50,4 +50,17 @@ public class FishInventory : MonoBehaviour
         return money;
         
     }
+    public List<FishSO> GetCaughtFish()
+    {
+        List<FishSO> list = new List<FishSO>();
+
+        foreach (var fish in fishList)
+        {
+            if (fish.Value > 0)
+            {
+                list.Add(fish.Key);
+            }
+        }
+        return list;
+    }
 }

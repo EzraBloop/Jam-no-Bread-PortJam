@@ -37,7 +37,14 @@ public class Fish : MonoBehaviour
             swimAcceleration = data.fishSpeed;
             maxSwimVelocity = data.fishMaxVelocity;
             FishID = data.fishID;
-
+            if (data.direction == FishSO.InitialDirection.LEFT)
+            {
+                moveDir = -transform.right;
+            }
+            else
+            {
+                moveDir = transform.right;
+            }
 
         }
         else
