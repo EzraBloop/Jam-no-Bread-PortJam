@@ -64,7 +64,7 @@ public class Fish : MonoBehaviour
     public void CatchFish(int amountCaught)
     {
         IsCaught = true;
-        //data.fishCaught += amountCaught;
+        FishInventory.Instance.EditFishCount(this.data, 1);
         Destroy(this.gameObject);
         
     }

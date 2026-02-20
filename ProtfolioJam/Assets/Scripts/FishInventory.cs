@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class FishInventory : MonoBehaviour
@@ -19,7 +20,7 @@ public class FishInventory : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
-
+        IntializeDictonary();
     }
     private void IntializeDictonary() 
     {
@@ -32,7 +33,13 @@ public class FishInventory : MonoBehaviour
     }
     public void EditFishCount(FishSO fish, int change)
     {
+        if (!fishList.ContainsKey(fish))
+        {
+            Debug.LogError($"Fish List does not contain {fish}");
+            return;
+        }
         var feesh = fishList[fish] += change;
+        Debug.Log($"{fish.fishName} : {fishList[fish].ToString()}");
     }
     public float SellFish(FishSO fish)
     {
