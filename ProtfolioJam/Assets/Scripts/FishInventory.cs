@@ -38,7 +38,7 @@ public class FishInventory : MonoBehaviour
             Debug.LogError($"Fish List does not contain {fish}");
             return;
         }
-        var feesh = fishList[fish] += change;
+        fishList[fish] += change;
         Debug.Log($"{fish.fishName} : {fishList[fish].ToString()}");
     }
     public float SellFish(FishSO fish)
