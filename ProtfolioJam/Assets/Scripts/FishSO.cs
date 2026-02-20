@@ -17,7 +17,6 @@ public class FishSO : ScriptableObject
     [Space(10)]
     public string fishName = "feesh";
     public float fishValue = 0;
-    public int fishCaught = 0;
 
     [Space(10)]
     public float fishSpeed = 1;
@@ -26,16 +25,10 @@ public class FishSO : ScriptableObject
     public GameObject prefab;
     public int fishSpawnWeight;
 
-    public void ClearFishCaught()
-    {
-        fishCaught = 0;
-
-    }
-    public float SellFish()
+    public float SellFish(int amountCaught)
     {
         float valueReturn = 0;
-        valueReturn = fishValue * fishCaught;
-        ClearFishCaught();
+        valueReturn = fishValue * amountCaught;
         return valueReturn;
     }
 }
