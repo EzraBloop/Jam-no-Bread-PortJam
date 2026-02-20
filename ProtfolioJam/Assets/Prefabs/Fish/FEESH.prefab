@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9171494498831384863}
-  - component: {fileID: 530896605538165777}
   - component: {fileID: 8923830833719917909}
+  - component: {fileID: 2585118904328346361}
   m_Layer: 0
   m_Name: FEESH
   m_TagString: Fish
@@ -34,29 +34,6 @@ Transform:
   - {fileID: 6938877235791216769}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &530896605538165777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6901440285536349135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c2790bf7d97d874597442cfd8d1e6d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Fish
-  data: {fileID: 11400000, guid: 8153732d18bf1dd44be18a722ab8a7b0, type: 2}
-  bobSettings:
-    waveHeight: 0.5
-    waveFrequency: 2
-  swimAcceleration: 1
-  maxSwimVelocity: 2
-  fishBody: {fileID: 6970195275997186822}
-  IsCaught: 0
-  Swimming:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!50 &8923830833719917909
 Rigidbody2D:
   serializedVersion: 5
@@ -84,6 +61,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2585118904328346361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901440285536349135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ecf1296c33e914da409a4a113288db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Fish
+  data: {fileID: 11400000, guid: 57d027b67c155ff46b8536f6dbef053f, type: 2}
+  bobSettings:
+    waveHeight: 0.5
+    waveFrequency: 2
+  swimAcceleration: 1
+  maxSwimVelocity: 2
+  fishBody: {fileID: 6970195275997186822}
+  IsCaught: 0
+  Swimming:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6970195275997186822
 GameObject:
   m_ObjectHideFlags: 0

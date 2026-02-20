@@ -26,7 +26,7 @@ public class Fish : MonoBehaviour
     public bool IsCaught;
     public UnityEvent<Vector2> Swimming;
 
-    public void Start()
+    public void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         //InitializeFish(transform.right, this.transform.position); // TEST
@@ -38,10 +38,12 @@ public class Fish : MonoBehaviour
             maxSwimVelocity = data.fishMaxVelocity;
             FishID = data.fishID;
 
+
         }
         else
         {
             FishID = -1;
+            Debug.LogWarning($"{gameObject.name}'s Scriptable Object is missing");
         }
 
 
@@ -58,6 +60,13 @@ public class Fish : MonoBehaviour
         {
             fishBody.transform.localPosition = Vector3.zero; // reset Bob transform changes;
         }
+    }
+    public void CatchFish(int amountCaught)
+    {
+        IsCaught = true;
+        //data.fishCaught += amountCaught;
+        Destroy(this.gameObject);
+        
     }
     /// <summary>
     /// sets the spawn location, and intial swim direction;
@@ -170,22 +179,4 @@ public class Fish : MonoBehaviour
     #endregion
 
 }
-[CreateAssetMenu(fileName = "FishData", menuName = "Fish/Fish Data")]
-[Serializable]
-public class FishSO : ScriptableObject
-{
-    public int fishID = 0;
-    [Header("Fish Stats")]
-    [Space(10)]
-    public string fishName = "feesh";
-    public float fishValue = 0;
-    public int fishCaught = 0;
-    public int fishSold = 0;
-    [Space(10)]
-    public float fishSpeed = 1;
-    public float fishMaxVelocity = 1;
 
-    public GameObject prefab;
-
-
-}

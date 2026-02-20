@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: Fish_Placeholder
+  m_Name: Feesh
   m_EditorClassIdentifier: Assembly-CSharp::FishSO
   fishID: 0
-  fishName: 
+  direction: 1
+  fishName: FEEEESH
   fishValue: 0
+  fishCaught: 0
   fishSpeed: 1
-  fishMaxSpeed: 1
-  prefab: {fileID: 3053531858982958890, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
+  fishMaxVelocity: 1
+  prefab: {fileID: 6901440285536349135, guid: d85ffc6116b4bf344a568e7de73eceba, type: 3}
+  fishSpawnWeight: 0

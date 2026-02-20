@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,6 +15,7 @@ public class BoatMovement : MonoBehaviour
     public GameObject gunPivot;
 
     public GameObject plunger;
+    public GameObject barrel;
 
     Vector2 movementDirection;
     public event Action<Vector2> OnMove;
@@ -56,9 +56,10 @@ public class BoatMovement : MonoBehaviour
 
     public void FirePlunger(InputAction.CallbackContext c)
     {
-        plunger.GetComponent<Rigidbody2D>().AddForce(Vector2.down * fireForce * Time.deltaTime, ForceMode2D.Impulse);
+        plunger.GetComponent<Rigidbody2D>().AddForce(barrel.transform.TransformDirection(Vector3.down) * fireForce * Time.deltaTime, ForceMode2D.Impulse);
         inControl = false;
         plunger.GetComponent<Plunger>().OnEnable();
+        plunger.GetComponent<Plunger>().Reappear();
         OnDisable();
     }
 }
