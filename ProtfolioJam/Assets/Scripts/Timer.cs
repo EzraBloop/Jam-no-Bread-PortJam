@@ -5,19 +5,22 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-
-    [SerializeField] GameObject timer, gameManager;
+    [SerializeField] GameManager gameManager;
+    [SerializeField] GameObject timer;
     
-    [SerializeField] float startTime = 60f, currentTime;
+    [SerializeField] float startTime, currentTime;
     [SerializeField] bool timerActive;
 
-    [SerializeField] TMP_Text[] scoresText;
+    public Camera cam;
+    public Earning ear;
+
     void Start()
     {
-        //gameManager = GameObject.FindGameObjectWithTag("GameManager");
-        timerActive = false;
+        gameManager = GameManager.Instance;
+        startTime = gameManager.dayTimer;
         currentTime = startTime;
         UpdateTimerDisplay();
+        timerActive = false;
     }
 
     void Update()
@@ -34,19 +37,16 @@ public class Timer : MonoBehaviour
                 currentTime = 0;
                 timerActive = false;
                 Debug.Log("Timer Over");
-                //gameManager.GetComponent<GameManager>().EndGame();
+                EndDay();
             }
         }
-        for (int i = 0; i < scoresText.Length; i++)
-        {
-            //scoresText[i].text = $"{gameManager.GetComponent<GameManager>().Scores[i]}";
-        }
+        
     }
 
     void UpdateTimerDisplay()
     {
-        int seconds = Mathf.FloorToInt(currentTime % 60);
-        timer.GetComponent<TMP_Text>().text = $"{seconds}";
+        int seconds = Mathf.FloorToInt(currentTime);
+        timer.GetComponent<TMP_Text>().text = $"Day Ends In {seconds}";
     }
 
     public void PauseTimer()
@@ -56,5 +56,18 @@ public class Timer : MonoBehaviour
     public void StartTimer()
     {
         timerActive = true;
+    }
+
+    public void EndDay()
+    {
+        if(cam.depth == 0)
+        {
+            cam.depth = -2;
+            ear.DisplayFish();
+        }
+        else
+        {
+            cam.depth = 0;
+        }
     }
 }

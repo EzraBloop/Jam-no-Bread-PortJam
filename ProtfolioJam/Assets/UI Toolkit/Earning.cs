@@ -7,16 +7,19 @@ public class Earning : MonoBehaviour
     UIDocument uiDocument;
     ScrollView scrollView;
 
+    GameManager gameManager;
+
     FishInventory inventory;
     public Dictionary<FishSO, int> fishes;
 
     void OnEnable()
     {
-  
+        
     }
 
     public void DisplayFish()
     {
+        gameManager = GameManager.Instance;
         inventory = FishInventory.Instance;
         fishes = inventory.GetCaughtFishAndAmount();
 
@@ -42,5 +45,8 @@ public class Earning : MonoBehaviour
             // Add the new item directly to the ScrollView
             scrollView.Add(newItem);
         }
+        float amount = inventory.SellAllFish();
+        gameManager.dailyEarnings = (int)amount;
+        gameManager.currentBalance += (int)amount;
     }
 }

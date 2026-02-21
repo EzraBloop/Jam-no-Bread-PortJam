@@ -3984,10 +3984,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TempPlunger
       objectReference: {fileID: 0}
-    - target: {fileID: 6984587369271785170, guid: 7ee9f699acefd2a40b6a5902e451c0ac, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

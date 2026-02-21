@@ -32,4 +32,6 @@ public class GameManager : MonoBehaviour
         forceMultiplier = 1;
         dayTimer = 60f;
     } 
+
+    
 }
