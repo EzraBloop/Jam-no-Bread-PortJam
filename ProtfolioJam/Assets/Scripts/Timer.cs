@@ -1,6 +1,8 @@
 
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class Timer : MonoBehaviour
@@ -20,7 +22,7 @@ public class Timer : MonoBehaviour
         startTime = gameManager.dayTimer;
         currentTime = startTime;
         UpdateTimerDisplay();
-        timerActive = false;
+        timerActive = true;
     }
 
     void Update()
@@ -69,5 +71,12 @@ public class Timer : MonoBehaviour
         {
             cam.depth = 0;
         }
+        StartCoroutine(SwitchToShop());
+    }
+
+    IEnumerator SwitchToShop()
+    {
+        yield return new WaitForSeconds(10);
+        SceneManager.LoadScene("ShopScene");
     }
 }
