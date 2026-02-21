@@ -484,6 +484,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1714105793074278810, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714105793074278810, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3006010802895066754, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.06
@@ -540,6 +548,18 @@ PrefabInstance:
       propertyPath: plunger
       value: 
       objectReference: {fileID: 1419569459}
+    - target: {fileID: 4140886674760420311, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: inControl
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140886674760420311, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: fire.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140886674760420311, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
+      propertyPath: fire.m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
     - target: {fileID: 7775857339750983002, guid: 7b8e6db39cfee5a4c96099e58d3ff504, type: 3}
       propertyPath: m_Name
       value: Boat

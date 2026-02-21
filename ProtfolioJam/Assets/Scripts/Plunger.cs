@@ -65,7 +65,7 @@ public class Plunger : MonoBehaviour
                     
                 } 
             }
-            if(Vector3.Distance(transform.position, boat.transform.position) < 0.01f)
+            if(Vector3.Distance(transform.position, boat.transform.position) < 0.01f && acending)
             {
                 SFX.PlayAudioClip(3);
                 foreach(GameObject c in captures)

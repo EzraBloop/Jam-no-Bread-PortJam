@@ -23,6 +23,7 @@ public class BoatMovement : MonoBehaviour
     Vector2 movementDirection;
     public event Action<Vector2> OnMove;
     Rigidbody2D rb;
+    bool shoot;
 
     public Earning ear;
     public AudioSounds SFX;
@@ -64,6 +65,16 @@ public class BoatMovement : MonoBehaviour
             }
         }
     }
+    private void FixedUpdate()
+    {
+        if (shoot)
+        {
+            Debug.Log("hey");
+            plunger.GetComponent<Rigidbody2D>().AddForce(barrel.transform.TransformDirection(Vector3.down) * fireForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
+            shoot = false;
+        }
+        
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         movementDirection.x = 0;
@@ -76,12 +87,15 @@ public class BoatMovement : MonoBehaviour
     }
 
     public void FirePlunger(InputAction.CallbackContext c)
-    {
+    {        
+        if (c.performed){
+        Debug.Log("Action was performed");
+        Debug.Log("What");
         SFX.PlayAudioClip(1);
-        plunger.GetComponent<Rigidbody2D>().AddForce(barrel.transform.TransformDirection(Vector3.down) * fireForce * Time.deltaTime, ForceMode2D.Impulse);
+        shoot = true;
         inControl = false;
         plunger.GetComponent<Plunger>().OnEnable();
         plunger.GetComponent<Plunger>().Reappear();
-        OnDisable();
+        OnDisable();}
     }
 }
