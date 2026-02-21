@@ -15,7 +15,7 @@ MonoBehaviour:
   fishID: 0
   direction: 1
   fishName: feesh
-  fishValue: 0
+  fishValue: 2
   fishSpeed: 1
   fishMaxVelocity: 1
   prefab: {fileID: 6901440285536349135, guid: d85ffc6116b4bf344a568e7de73eceba, type: 3}

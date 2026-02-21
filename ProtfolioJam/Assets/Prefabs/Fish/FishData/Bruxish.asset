@@ -15,7 +15,7 @@ MonoBehaviour:
   fishID: 0
   direction: 0
   fishName: Bruxish
-  fishValue: 0
+  fishValue: 1
   fishSpeed: 1
   fishMaxVelocity: 1
   prefab: {fileID: 5690655064159181208, guid: f3d3c476da4bcbf4290a7802c41ee2c9, type: 3}

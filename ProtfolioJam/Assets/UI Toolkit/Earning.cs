@@ -6,6 +6,7 @@ public class Earning : MonoBehaviour
 {
     UIDocument uiDocument;
     ScrollView scrollView;
+    Label total, daily;
 
     GameManager gameManager;
 
@@ -45,8 +46,13 @@ public class Earning : MonoBehaviour
             // Add the new item directly to the ScrollView
             scrollView.Add(newItem);
         }
+        //Selling Fish
+        daily = root.Q<Label>("Daily");
+        total = root.Q<Label>("Total");
         float amount = inventory.SellAllFish();
         gameManager.dailyEarnings = (int)amount;
         gameManager.currentBalance += (int)amount;
+        daily.text = $"Daily Earnings: {gameManager.dailyEarnings}";
+        total.text = $"Current Balance: {gameManager.currentBalance}";
     }
 }

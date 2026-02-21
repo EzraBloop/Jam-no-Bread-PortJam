@@ -193,6 +193,7 @@ public class Shop : MonoBehaviour
 
     public void onReturnFishing(ClickEvent evt)
     {
+        instance.dailyEarnings = 0;
         SceneManager.LoadScene("MainFishing");
     }
 
