@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f61335e573c584b9feb324b63a3720, type: 3}
   m_Name: Bass
   m_EditorClassIdentifier: Assembly-CSharp::FishSO
-  fishID: 0
+  fishID: 3
   direction: 0
   fishName: Bass
-  fishValue: 0
+  fishValue: 1
   fishSpeed: 1
   fishMaxVelocity: 1
   prefab: {fileID: 3053531858982958890, guid: 07731d0892b74064b9cc049167b85f78, type: 3}

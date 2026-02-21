@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f61335e573c584b9feb324b63a3720, type: 3}
   m_Name: Fish Bones
   m_EditorClassIdentifier: Assembly-CSharp::FishSO
-  fishID: 0
+  fishID: 5
   direction: 0
   fishName: feesh
-  fishValue: 0
-  fishSpeed: 1
-  fishMaxVelocity: 1
+  fishValue: 50
+  fishSpeed: 4
+  fishMaxVelocity: 4
   prefab: {fileID: 3053531858982958890, guid: e4a55cd642fffb24bb7777bb2dbb0cd1, type: 3}
   fishSpawnWeight: 0

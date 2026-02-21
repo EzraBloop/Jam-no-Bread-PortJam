@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f61335e573c584b9feb324b63a3720, type: 3}
   m_Name: RedSnapper
   m_EditorClassIdentifier: Assembly-CSharp::FishSO
-  fishID: 0
+  fishID: 8
   direction: 0
   fishName: Red Snapper
-  fishValue: 0
+  fishValue: 2
   fishSpeed: 1
   fishMaxVelocity: 1
   prefab: {fileID: 3053531858982958890, guid: 29d55ae164869214dafa744f0314f2db, type: 3}
