@@ -87,15 +87,14 @@ public class BoatMovement : MonoBehaviour
     }
 
     public void FirePlunger(InputAction.CallbackContext c)
-    {        
-        if (c.performed){
-        Debug.Log("Action was performed");
+    {         
         Debug.Log("What");
         SFX.PlayAudioClip(1);
         shoot = true;
         inControl = false;
         plunger.GetComponent<Plunger>().OnEnable();
         plunger.GetComponent<Plunger>().Reappear();
-        OnDisable();}
+        OnDisable();
+    
     }
 }

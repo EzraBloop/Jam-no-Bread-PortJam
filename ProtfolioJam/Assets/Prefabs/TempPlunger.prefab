@@ -253,8 +253,8 @@ MonoBehaviour:
     m_Flags: 0
   recallAction:
     m_Name: Recall
-    m_Type: 0
-    m_ExpectedControlType: 
+    m_Type: 1
+    m_ExpectedControlType: Button
     m_Id: 29128b6f-6d38-4f71-bd55-8900464b08c9
     m_Processors: 
     m_Interactions: 
@@ -270,8 +270,8 @@ MonoBehaviour:
     m_Flags: 0
   boostAction:
     m_Name: Boost
-    m_Type: 0
-    m_ExpectedControlType: 
+    m_Type: 1
+    m_ExpectedControlType: Button
     m_Id: 39df2942-c17b-41a1-a4d7-38ecd0d19994
     m_Processors: 
     m_Interactions: 
@@ -300,6 +300,7 @@ MonoBehaviour:
   acending: 0
   hasBoost: 0
   boostCooldown: 0
+  SFX: {fileID: 0}
 --- !u!50 &8779445311346839361
 Rigidbody2D:
   serializedVersion: 5
