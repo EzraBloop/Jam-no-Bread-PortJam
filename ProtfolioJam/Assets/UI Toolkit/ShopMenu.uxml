@@ -6,9 +6,10 @@
         <ui:Button text="Start Next Day" name="ReturnFish" style="position: absolute; top: 942px; left: 25px; height: 117px; width: 333px; font-size: 40px;"/>
         <ui:Image style="position: absolute; height: 822px; width: 1024px; top: 272px; left: 1092px; background-image: resource(&quot;Shopkeeper&quot;);"/>
         <ui:Button text="Boost" name="BoostUpgrade" style="position: absolute; top: 285px; left: 100px; width: 200px; height: 75px;"/>
-        <ui:Label text="sample&#10;" name="ShopKeepText" parse-escape-sequences="false" style="font-size: 40px; align-items: auto; align-self: auto; height: 535px; width: 563px; position: absolute; top: 338px; left: 709px; flex-wrap: wrap; flex-direction: column; align-content: auto; white-space: normal;"/>
+        <ui:Label text="sample&#10;" name="ShopKeepText" parse-escape-sequences="false" style="font-size: 40px; align-items: auto; align-self: auto; height: 535px; width: 563px; position: absolute; top: 338px; left: 709px; flex-wrap: wrap; flex-direction: column; align-content: auto; white-space: normal; background-color: rgba(130, 129, 129, 0);"/>
         <ui:Button text="Length of Day" name="DayUpgrade" style="position: absolute; top: 99px; left: 232px; height: 85px; width: 271px; font-size: 25px;"/>
         <ui:Button text="Turn" name="TurnUpgrade" enable-rich-text="false" style="position: absolute; top: 560px; left: 100px; width: 200px; height: 75px;"/>
         <ui:Image style="background-image: resource(&quot;backgrounds_and_shop/shop_desk&quot;); position: absolute; height: 681px; width: 1208px; top: 397px; left: 710px;"/>
+        <ui:Label text="sample&#10;" name="BalanceText" parse-escape-sequences="false" style="font-size: 40px; align-items: auto; align-self: auto; height: 66px; width: 563px; position: absolute; top: 972px; left: 420px; flex-wrap: wrap; flex-direction: column; align-content: auto; white-space: normal; background-color: rgba(130, 129, 129, 0);"/>
     </ui:VisualElement>
 </ui:UXML>

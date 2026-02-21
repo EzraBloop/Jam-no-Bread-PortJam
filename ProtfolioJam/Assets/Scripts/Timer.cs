@@ -76,7 +76,7 @@ public class Timer : MonoBehaviour
 
     IEnumerator SwitchToShop()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(10);// might be a bit long
         SceneManager.LoadScene("ShopScene");
     }
 }

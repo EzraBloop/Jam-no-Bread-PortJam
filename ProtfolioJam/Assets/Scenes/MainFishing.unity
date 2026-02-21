@@ -1389,7 +1389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6379282d5d3864428d0cbec26ddb00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  currentBalance: 1000000000
+  currentBalance: 0
   dailyEarnings: 0
   fishData: []
   turnSpeed: 0
