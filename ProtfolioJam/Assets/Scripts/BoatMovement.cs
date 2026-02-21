@@ -69,7 +69,6 @@ public class BoatMovement : MonoBehaviour
     {
         if (shoot)
         {
-            Debug.Log("hey");
             plunger.GetComponent<Rigidbody2D>().AddForce(barrel.transform.TransformDirection(Vector3.down) * fireForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
             shoot = false;
         }
@@ -88,7 +87,6 @@ public class BoatMovement : MonoBehaviour
 
     public void FirePlunger(InputAction.CallbackContext c)
     {         
-        Debug.Log("What");
         SFX.PlayAudioClip(1);
         shoot = true;
         inControl = false;

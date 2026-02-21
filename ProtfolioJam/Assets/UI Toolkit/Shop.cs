@@ -153,7 +153,7 @@ public class Shop : MonoBehaviour
     {
         if (instance.currentBalance > forceCost)
         {
-            if (instance.forceMultiplier >= 16)
+            if (instance.forceMultiplier <= 16)
             {
                 instance.currentBalance -= forceCost;
                 instance.forceMultiplier *= 2;
