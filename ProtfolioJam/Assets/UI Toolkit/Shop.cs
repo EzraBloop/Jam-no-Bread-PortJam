@@ -108,7 +108,7 @@ public class Shop : MonoBehaviour
 
     public void onTurnUpgrade(ClickEvent evt)
     {
-        if (instance.currentBalance > instance.turnCost)
+        if (instance.currentBalance >= instance.turnCost)
         {
             if (instance.turnSpeed < 133)
             {
@@ -137,7 +137,7 @@ public class Shop : MonoBehaviour
 
     public void onBoostUpgrade(ClickEvent evt)
     {
-        if (instance.currentBalance > instance.boostCost)
+        if (instance.currentBalance >= instance.boostCost)
         {
             instance.currentBalance -= instance.boostCost;
             instance.fallBoostAvailible = true;
@@ -157,7 +157,7 @@ public class Shop : MonoBehaviour
 
     public void onCatchNumberUpgrade(ClickEvent evt)
     {
-        if (instance.currentBalance > instance.catchNumberCost)
+        if (instance.currentBalance >= instance.catchNumberCost)
         {
             if (instance.fishCaptureable < 5)
             {
@@ -185,7 +185,7 @@ public class Shop : MonoBehaviour
 
     public void onForceUpgrade(ClickEvent evt)
     {
-        if (instance.currentBalance > instance.forceCost)
+        if (instance.currentBalance >= instance.forceCost)
         {
             if (instance.forceMultiplier <= 16)
             {
@@ -214,7 +214,7 @@ public class Shop : MonoBehaviour
 
     public void onDayLengthUpgrade(ClickEvent evt)
     {
-        if(instance.currentBalance > instance.dayCost)
+        if(instance.currentBalance >= instance.dayCost)
         {
             if (instance.dayTimer < 180f)
             {
