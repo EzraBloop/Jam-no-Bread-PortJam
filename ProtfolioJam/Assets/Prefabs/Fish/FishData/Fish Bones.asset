@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishSO
   fishID: 5
   direction: 0
-  fishName: feesh
+  fishName: Fish Bones
   fishValue: 50
   fishSpeed: 4
   fishMaxVelocity: 4

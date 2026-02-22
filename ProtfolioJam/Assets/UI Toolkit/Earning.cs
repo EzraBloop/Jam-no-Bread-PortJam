@@ -40,7 +40,7 @@ public class Earning : MonoBehaviour
         {
             var newItem = new Label
             {
-                text = fish.Key.fishName + " " + fish.Value
+                text = $"{fish.Key.fishName} ${fish.Key.fishValue} X{fish.Value}"
             };
 
             // Add the new item directly to the ScrollView

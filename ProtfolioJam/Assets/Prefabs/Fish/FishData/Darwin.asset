@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65f61335e573c584b9feb324b63a3720, type: 3}
-  m_Name: TestFish
+  m_Name: Darwin
   m_EditorClassIdentifier: Assembly-CSharp::FishSO
-  fishID: 2
-  direction: 1
-  fishName: Gold Fish
+  fishID: 15
+  direction: 0
+  fishName: Darwin
   fishValue: 10
-  fishSpeed: 1
-  fishMaxVelocity: 1
-  prefab: {fileID: 3053531858982958890, guid: ab62d98b1797ef347892ca652b631b8a, type: 3}
+  fishSpeed: 4
+  fishMaxVelocity: 4
+  prefab: {fileID: 7309864475320773068, guid: 0c57617f7bb519e4388f4c53b0eee37b, type: 3}
   fishSpawnWeight: 0

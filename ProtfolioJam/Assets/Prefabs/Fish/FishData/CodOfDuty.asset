@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishSO
   fishID: 4
   direction: 0
-  fishName: Bass
+  fishName: Cod Of Duty
   fishValue: 2
   fishSpeed: 2
   fishMaxVelocity: 2
