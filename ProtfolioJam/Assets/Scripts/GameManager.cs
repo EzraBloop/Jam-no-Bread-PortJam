@@ -28,8 +28,10 @@ public class GameManager : MonoBehaviour
         turnSpeed = 100;
         fallBoostAvailible = false;
         fishCaptureable = 1;
-        initialLaunchForce = 800;
+        initialLaunchForce = 100;
         forceMultiplier = 1;
         dayTimer = 60f;
     } 
+
+    
 }

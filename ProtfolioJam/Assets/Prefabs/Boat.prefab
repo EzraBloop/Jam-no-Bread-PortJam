@@ -682,6 +682,8 @@ GameObject:
   - component: {fileID: 4140886674760420311}
   - component: {fileID: 1714105793074278810}
   - component: {fileID: 6364287496280653825}
+  - component: {fileID: 8596390175414093161}
+  - component: {fileID: 7416303703118319463}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Untagged
@@ -776,9 +778,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d42441039389646af13b76882fcb76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoatMovement
+  cam: {fileID: 0}
   moveSpeed: 5
   rotSpeed: 50
-  fireForce: 4000
+  fireForce: 800
   inControl: 0
   move:
     m_Name: Move
@@ -849,6 +852,8 @@ MonoBehaviour:
   gunPivot: {fileID: 1124365798770865521}
   plunger: {fileID: 0}
   barrel: {fileID: 6470039234863972973}
+  ear: {fileID: 0}
+  SFX: {fileID: 0}
 --- !u!50 &1714105793074278810
 Rigidbody2D:
   serializedVersion: 5
@@ -875,7 +880,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &6364287496280653825
 Animator:
   serializedVersion: 7
@@ -898,3 +903,95 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &8596390175414093161
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7775857339750983002}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -1.1210148, y: 0.06562887}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.7324457, y: 2.048}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.10052264, y: 0.37057957}
+  m_EdgeRadius: 0
+--- !u!61 &7416303703118319463
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7775857339750983002}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.75844175, y: 0.37261918}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.7324457, y: 2.048}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.21217096, y: 0.84523076}
+  m_EdgeRadius: 0

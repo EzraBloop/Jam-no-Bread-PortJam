@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 
 public class BoatMovement : MonoBehaviour
 {
+
+    public Camera cam;
+
     public float moveSpeed;
     public float rotSpeed;
     public float fireForce;
@@ -20,8 +23,10 @@ public class BoatMovement : MonoBehaviour
     Vector2 movementDirection;
     public event Action<Vector2> OnMove;
     Rigidbody2D rb;
+    bool shoot;
 
-
+    public Earning ear;
+    public AudioSounds SFX;
     private void Awake()
     {
         move.performed += GetMoveVector;
@@ -46,6 +51,28 @@ public class BoatMovement : MonoBehaviour
     {
         transform.position += new Vector3(movementDirection.x, 0, 0) * moveSpeed * Time.deltaTime;
         gunPivot.transform.localEulerAngles += new Vector3(0, 0, -movementDirection.y) * rotSpeed * Time.deltaTime;
+
+        if(Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            if(cam.depth == 0)
+            {
+                cam.depth = -2;
+                ear.DisplayFish();
+            }
+            else
+            {
+                cam.depth = 0;
+            }
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (shoot)
+        {
+            plunger.GetComponent<Rigidbody2D>().AddForce(barrel.transform.TransformDirection(Vector3.down) * fireForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
+            shoot = false;
+        }
+        
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -59,11 +86,13 @@ public class BoatMovement : MonoBehaviour
     }
 
     public void FirePlunger(InputAction.CallbackContext c)
-    {
-        plunger.GetComponent<Rigidbody2D>().AddForce(barrel.transform.TransformDirection(Vector3.down) * fireForce * Time.deltaTime, ForceMode2D.Impulse);
+    {         
+        SFX.PlayAudioClip(1);
+        shoot = true;
         inControl = false;
         plunger.GetComponent<Plunger>().OnEnable();
         plunger.GetComponent<Plunger>().Reappear();
         OnDisable();
+    
     }
 }

@@ -9,15 +9,9 @@ public class Fish : MonoBehaviour
 
     protected Vector2 moveDir;
     public int FishID { get; private set; }
+    private float turnCooldown = 0f;
 
     [SerializeField] protected FishSO data;
-    [Serializable]
-    public struct BobSettings
-    {
-        public float waveHeight;
-        public float waveFrequency;
-    }
-    [SerializeField] protected BobSettings bobSettings = new BobSettings { waveHeight = 0.5f, waveFrequency = 2f };
 
     [SerializeField] protected float swimAcceleration = 1, maxSwimVelocity = 2; //overwritten by data if present
     [Space(10)][SerializeField] protected GameObject fishBody;
@@ -28,6 +22,7 @@ public class Fish : MonoBehaviour
 
     public void Awake()
     {
+
         rb = GetComponent<Rigidbody2D>();
         //InitializeFish(transform.right, this.transform.position); // TEST
         rb.gravityScale = 0f;
@@ -37,7 +32,14 @@ public class Fish : MonoBehaviour
             swimAcceleration = data.fishSpeed;
             maxSwimVelocity = data.fishMaxVelocity;
             FishID = data.fishID;
-
+            if (data.direction == FishSO.InitialDirection.LEFT)
+            {
+                moveDir = -transform.right;
+            }
+            else
+            {
+                moveDir = transform.right;
+            }
 
         }
         else
@@ -48,10 +50,16 @@ public class Fish : MonoBehaviour
 
 
         if (moveDir == Vector2.zero) moveDir = transform.right;
+        if (this.data.direction == FishSO.InitialDirection.LEFT)
+        {
+            fishBody.GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 
     public void Update()
     {
+        turnCooldown -= Time.deltaTime;
+
         if (!IsCaught)
         {
             Swim(moveDir);
@@ -66,7 +74,7 @@ public class Fish : MonoBehaviour
         IsCaught = true;
         FishInventory.Instance.EditFishCount(this.data, 1);
         Destroy(this.gameObject);
-        
+
     }
     /// <summary>
     /// sets the spawn location, and intial swim direction;
@@ -111,6 +119,7 @@ public class Fish : MonoBehaviour
         if (rb.linearVelocity.magnitude > 0.1)
         {
             var sprite = fishBody.GetComponent<SpriteRenderer>();
+
             if (rb.linearVelocity.x <= 0)
             {
                 sprite.flipY = true;
@@ -120,20 +129,35 @@ public class Fish : MonoBehaviour
             {
                 sprite.flipY = false;
             }
-
-            var angle = Mathf.Atan2(tmpVelocity.y, tmpVelocity.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, angle);
-
         }
 
 
+
+        var angle = Mathf.Atan2(tmpVelocity.y, tmpVelocity.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
     }
+
+
+
     protected void Pathing(List<RaycastHit2D> check)
     {
 
-        //rb.linearVelocity = Vector2.zero;
-        
-        moveDir *= -1;
+        foreach (var hit in check)
+        {
+            if (!hit.collider.CompareTag("Fish"))
+            {
+                if (turnCooldown <= 0f)
+                {
+                    moveDir = Vector2.Reflect(moveDir, hit.normal).normalized;
+                    rb.linearVelocity = moveDir * maxSwimVelocity * 0.5f;
+                    turnCooldown = 0.2f;
+                    break;
+                }
+                
+            }
+        }
+
     }
     #endregion
 
@@ -142,8 +166,8 @@ public class Fish : MonoBehaviour
     {
         float rayDistance = 2f;
 
-        var hits = Physics2D.RaycastAll(transform.position, moveDir, rayDistance);
-        return hits.Where(h => h.collider.gameObject != fishBody || h.collider.GetComponentInParent<Fish>() == null).ToList();
+        var hits = Physics2D.RaycastAll(transform.position + (Vector3)moveDir.normalized, moveDir, rayDistance);
+        return hits.Where(h => h.collider.gameObject != fishBody && h.collider.GetComponentInParent<Fish>() == null).ToList();
     }
     protected void OnCollisionEnter2D(Collision2D collision)
     {
@@ -174,7 +198,7 @@ public class Fish : MonoBehaviour
     protected void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position + transform.right * 2f);
+        Gizmos.DrawLine(transform.position, transform.position + (Vector3)moveDir.normalized * 2f);
     }
     #endregion
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1292446346468231712}
   - component: {fileID: 1008587228307875406}
   - component: {fileID: 5306044206587532484}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fish
   m_TagString: Fish
   m_Icon: {fileID: 0}
@@ -74,9 +74,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fish
   data: {fileID: 11400000, guid: 08f9abc171a340d49bd4ef7ecc45979d, type: 2}
-  bobSettings:
-    waveHeight: 0.5
-    waveFrequency: 2
   swimAcceleration: 1
   maxSwimVelocity: 2
   fishBody: {fileID: 5584974740813783897}
@@ -95,7 +92,7 @@ GameObject:
   - component: {fileID: 5040336136997612261}
   - component: {fileID: 4686845244874768760}
   - component: {fileID: 4802119796878089648}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpriteBody
   m_TagString: Fish
   m_Icon: {fileID: 0}
