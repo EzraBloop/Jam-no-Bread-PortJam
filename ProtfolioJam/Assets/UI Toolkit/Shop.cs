@@ -10,7 +10,7 @@ public class Shop : MonoBehaviour
 
     public GameManager instance;
     private Button turn, boost, catchNumber, force, backFish, dayLength;
-    public int turnCost, boostCost, catchNumberCost, forceCost, dayCost;
+    
     private Label shopText, balanceText;
     private int counter;
     public AudioSounds SFX;
@@ -19,11 +19,7 @@ public class Shop : MonoBehaviour
     {
         instance = GameManager.Instance;
 
-        turnCost = 10;
-        boostCost = 50;
-        catchNumberCost = 20;
-        forceCost = 5;
-        dayCost = 30;
+        
 
         ui = GetComponent<UIDocument>();
         ve = ui.rootVisualElement as VisualElement;
@@ -112,13 +108,13 @@ public class Shop : MonoBehaviour
 
     public void onTurnUpgrade(ClickEvent evt)
     {
-        if (instance.currentBalance > turnCost)
+        if (instance.currentBalance > instance.turnCost)
         {
             if (instance.turnSpeed < 133)
             {
-                instance.currentBalance -= turnCost;
+                instance.currentBalance -= instance.turnCost;
                 instance.turnSpeed += 11;
-                turnCost *= 2;
+                instance.turnCost *= 2;
                 Purchase();
                 SFX.PlayAudioClip(5);
             }
@@ -136,14 +132,14 @@ public class Shop : MonoBehaviour
     }
     public void onTurnHover(MouseEnterEvent evt)
     {
-        shopText.text = $"Increase Your Horizantal Movement. Current Speed: {instance.turnSpeed}. Price: ${turnCost}";
+        shopText.text = $"Increase Your Horizantal Movement. Current Speed: {instance.turnSpeed}. Price: ${instance.turnCost}";
     }
 
     public void onBoostUpgrade(ClickEvent evt)
     {
-        if (instance.currentBalance > boostCost)
+        if (instance.currentBalance > instance.boostCost)
         {
-            instance.currentBalance -= boostCost;
+            instance.currentBalance -= instance.boostCost;
             instance.fallBoostAvailible = true;
             boost.SetEnabled(false);
             Purchase();
@@ -156,18 +152,18 @@ public class Shop : MonoBehaviour
     }
     public void onBoostHover(MouseEnterEvent evt)
     {
-        shopText.text = $"Gain a Small Boost Downwards Every 5 Seconds. Press F to activate. Price: ${boostCost}";
+        shopText.text = $"Gain a Small Boost Downwards Every 5 Seconds. Press F to activate. Price: ${instance.boostCost}";
     }
 
     public void onCatchNumberUpgrade(ClickEvent evt)
     {
-        if (instance.currentBalance > catchNumberCost)
+        if (instance.currentBalance > instance.catchNumberCost)
         {
             if (instance.fishCaptureable < 5)
             {
-                instance.currentBalance -= catchNumberCost;
+                instance.currentBalance -= instance.catchNumberCost;
                 instance.fishCaptureable += 1;
-                catchNumberCost *= 2;
+                instance.catchNumberCost *= 2;
                 Purchase();
             }
         }
@@ -184,18 +180,18 @@ public class Shop : MonoBehaviour
     }
     public void onCatchNumberHover(MouseEnterEvent evt)
     {
-        shopText.text = $"Increase the Number of Fish you Can Catch in One Cast. Current Amount: {instance.fishCaptureable}. Price: ${catchNumberCost}";
+        shopText.text = $"Increase the Number of Fish you Can Catch in One Cast. Current Amount: {instance.fishCaptureable}. Price: ${instance.catchNumberCost}";
     }
 
     public void onForceUpgrade(ClickEvent evt)
     {
-        if (instance.currentBalance > forceCost)
+        if (instance.currentBalance > instance.forceCost)
         {
             if (instance.forceMultiplier <= 16)
             {
-                instance.currentBalance -= forceCost;
+                instance.currentBalance -= instance.forceCost;
                 instance.forceMultiplier *= 2;
-                forceCost *= 2;
+                instance.forceCost *= 2;
                 counter ++;
                 Purchase();
             }
@@ -213,18 +209,18 @@ public class Shop : MonoBehaviour
     }
     public void onForceHover(MouseEnterEvent evt)
     {
-        shopText.text = $"Increase the Amount of Force You Shoot Out the Plunger With. Current Force Multiplier: {instance.forceMultiplier}. Price: ${forceCost}";
+        shopText.text = $"Increase the Amount of Force You Shoot Out the Plunger With. Current Force Multiplier: {instance.forceMultiplier}. Price: ${instance.forceCost}";
     }
 
     public void onDayLengthUpgrade(ClickEvent evt)
     {
-        if(instance.currentBalance > dayCost)
+        if(instance.currentBalance > instance.dayCost)
         {
             if (instance.dayTimer < 180f)
             {
-                instance.currentBalance -= dayCost;
+                instance.currentBalance -= instance.dayCost;
                 instance.dayTimer += 30f;
-                dayCost *= 2;
+                instance.dayCost *= 2;
                 Purchase();
             }
         }
@@ -237,7 +233,7 @@ public class Shop : MonoBehaviour
     }
     public void onDayLengthHover(MouseEnterEvent evt)
     {
-        shopText.text = $"Increase the Amount of Time You Have to Catch Fish. Current Time: {instance.dayTimer}. Price: ${dayCost}";
+        shopText.text = $"Increase the Amount of Time You Have to Catch Fish. Current Time: {instance.dayTimer}. Price: ${instance.dayCost}";
     }
 
     public void onReturnFishing(ClickEvent evt)

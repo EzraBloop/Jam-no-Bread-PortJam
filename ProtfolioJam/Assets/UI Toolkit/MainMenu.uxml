@@ -3,6 +3,6 @@
     <ui:VisualElement style="flex-grow: 1; background-image: resource(&quot;title_screen&quot;);">
         <ui:Button text="" name="Quit" class="button" style="position: absolute; top: 645px; left: 350px; background-image: resource(&quot;Buttons-Quit&quot;); -unity-background-image-tint-color: rgb(255, 255, 255); width: 200px; height: 100px;"/>
         <ui:Button text="" name="Play" class="button" style="position: absolute; top: 407px; left: 350px; background-image: resource(&quot;Buttons-Play&quot;); height: 100px; width: 200px;"/>
-        <ui:Label text="Feeesh" name="Title" class="header" style="-unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/Qilka-Bold%20copy.otf?fileID=12800000&amp;guid=ae7aa9cd31da69c40b84da7777b46750&amp;type=3#Qilka-Bold copy&quot;); letter-spacing: 0; font-size: 100px; text-shadow: 5px 5px 0 rgb(125, 71, 36); color: rgb(229, 164, 53); -unity-font-style: normal; -unity-text-outline-color: rgb(0, 0, 0); -unity-text-outline-width: 2px; margin-top: 50px;"/>
+        <ui:Label text="Plunger Fishing" name="Title" class="header" style="-unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/Qilka-Bold%20copy.otf?fileID=12800000&amp;guid=ae7aa9cd31da69c40b84da7777b46750&amp;type=3#Qilka-Bold copy&quot;); letter-spacing: 0; font-size: 100px; text-shadow: 5px 5px 0 rgb(125, 71, 36); color: rgb(229, 164, 53); -unity-font-style: normal; -unity-text-outline-color: rgb(0, 0, 0); -unity-text-outline-width: 2px; margin-top: 50px;"/>
     </ui:VisualElement>
 </ui:UXML>

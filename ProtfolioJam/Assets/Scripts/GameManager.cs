@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public int initialLaunchForce;
     public int forceMultiplier;
     public float dayTimer;
+    public int turnCost, boostCost, catchNumberCost, forceCost, dayCost;
 
     private void Awake()
     {
@@ -31,6 +32,12 @@ public class GameManager : MonoBehaviour
         initialLaunchForce = 100;
         forceMultiplier = 1;
         dayTimer = 60f;
+
+        turnCost = 10;
+        boostCost = 50;
+        catchNumberCost = 20;
+        forceCost = 5;
+        dayCost = 30;
     } 
 
     
